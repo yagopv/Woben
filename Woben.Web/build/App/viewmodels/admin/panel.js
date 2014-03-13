@@ -1,0 +1,1 @@
+define(["services/appsecurity"],function(e){var t={userprofiles:ko.observableArray(),activate:function(){ga("send","pageview",{page:window.location.href,title:document.title})},attached:function(){var t=this;e.getUsers().then(function(e){t.userprofiles(e)})}};return t});

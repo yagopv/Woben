@@ -1,0 +1,1 @@
+define(["plugins/router"],function(e){return{convertRouteToHash:e.convertRouteToHash,activate:function(){ga("send","pageview",{page:window.location.href,title:document.title})}}});

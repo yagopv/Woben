@@ -1,0 +1,1 @@
+define(["plugins/router"],function(e){return{router:e}});

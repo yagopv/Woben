@@ -1,0 +1,13 @@
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\bin\Debug\Woben.Domain.dll.config
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\bin\Debug\Woben.Domain.dll
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\bin\Debug\Woben.Domain.pdb
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\bin\Debug\EntityFramework.dll
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\bin\Debug\EntityFramework.xml
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\obj\Debug\Woben.Domain.dll
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\obj\Debug\Woben.Domain.pdb
