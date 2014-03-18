@@ -25,9 +25,7 @@ using Microsoft.Owin.Security;
 using StructureMap;
 
 using Woben.Data;
-using Woben.Data.UnitOfWork;
 using Woben.Domain.Model;
-using Woben.Domain.UnitOfWork;
 using Woben.Web.SEO;
 using Woben.Web.Helpers;
 using System.Security.Principal;
@@ -41,9 +39,7 @@ namespace Woben.Web.DependencyResolution {
                                     {
                                         scan.TheCallingAssembly();
                                         scan.WithDefaultConventions();
-                                    });                            
-
-                            x.For<IUnitOfWork>().HttpContextScoped().Use<UnitOfWork>();
+                                    });
 
                             x.For<ISnapshot>().HttpContextScoped().Use<Snapshot>();
 

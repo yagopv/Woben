@@ -12,37 +12,32 @@ namespace Woben.Domain.Model
     /// <summary>
     /// Represents a Post for a given Blog
     /// </summary>
-    [DataContract(IsReference = true)]
-    public class Article : AuditInfoComplete
+    public class Product : AuditInfoComplete
     {
         /// <summary>
-        /// Post identity
+        /// Entity identity
         /// </summary>
-        [Key]        
-        [DataMember]
-        public Guid ArticleId { get; set; }
+        [Key]
+        public int ProductId { get; set; }
 
         /// <summary>
-        /// Title of this article
+        /// Title of this product
         /// </summary>
         [Required]
         [StringLength(200)]
-        [DataMember]        
         public string Title { get; set; }
 
         /// <summary>
         /// The title accesible by url
         /// </summary>
         [StringLength(200)]
-        [DataMember]
         public string UrlCodeReference { get; set; }
 
         /// <summary>
-        /// Description for this article
+        /// Description for this product
         /// </summary>
         [Required]
         [StringLength(500)]
-        [DataMember]
         public string Description { get; set; }
 
         /// <summary>
@@ -51,26 +46,22 @@ namespace Woben.Domain.Model
         [Required]
         [StringLength(500)]
         [DataType(DataType.ImageUrl)]
-        [DataMember]
         public string ImageUrl { get; set; }
 
         /// <summary>
         /// Will store markdown text
         /// </summary>
-        [DataMember]
         public string Markdown { get; set; }
 
         /// <summary>
         /// Will store the markdown converted to html for quicker rendering
         /// </summary>
         [DataType(DataType.Html)]
-        [DataMember]
         public string Html { get; set; }
 
         /// <summary>
-        /// If the article is published and visible to others or not
+        /// If the product is published and visible to others or not
         /// </summary>
-        [DataMember]
         [Required]
         public bool IsPublished { get; set; }
 
@@ -79,13 +70,12 @@ namespace Woben.Domain.Model
         /// Foreign CategoryId key
         /// </summary> 
         [DataMember]
-        public Guid CategoryId { get; set; }
+        public int CategoryId { get; set; }
 
         /// <summary>
         /// Related Category
         /// </summary>
         [ForeignKey("CategoryId")]
-        [DataMember]
         public Category Category { get; set; }
 
         /// <summary>

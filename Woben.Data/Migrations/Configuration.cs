@@ -41,55 +41,6 @@ namespace Woben.Data.Migrations
                     UserManager.AddToRole(user.Id,"Administrator" );
                 }                
             }
-
-            WobenDbContext uow = new WobenDbContext();
-            
-            if (!uow.Categories.Any())
-            {
-
-                Category category1 = new Category()
-                {
-                    CategoryId = Guid.NewGuid(),
-                    Name = "About Woben",
-                };
-                category1.SetUrlReference();
-                uow.Categories.AddOrUpdate(category1);
-
-                Category category2 = new Category()
-                {
-                    CategoryId = Guid.NewGuid(),
-                    Name = "General",
-                };
-                category2.SetUrlReference();
-                uow.Categories.AddOrUpdate(category2);
-
-                Category category3 = new Category()
-                {
-                    CategoryId = Guid.NewGuid(),
-                    Name = "Development",
-                };
-                category3.SetUrlReference();
-                uow.Categories.AddOrUpdate(category3);
-
-                Category category4 = new Category()
-                {
-                    CategoryId = Guid.NewGuid(),
-                    Name = "Technology",
-                };
-                category4.SetUrlReference();
-                uow.Categories.AddOrUpdate(category4);
-
-                Category category5 = new Category()
-                {
-                    CategoryId = Guid.NewGuid(),
-                    Name = "Security",
-                };
-                category5.SetUrlReference();
-                uow.Categories.AddOrUpdate(category5);
-
-                uow.SaveChanges();
-
-            }
         }
     }
 }

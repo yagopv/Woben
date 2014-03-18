@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 using Microsoft.AspNet.Identity.EntityFramework;
-
 using Woben.Domain.Model;
-using Woben.Domain.UnitOfWork;
-using Woben.Data.Repositories;
-using Woben.Domain.Repositories;
 
 namespace Woben.Data
 {
@@ -23,7 +19,7 @@ namespace Woben.Data
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<WobenDbContext, Migrations.Configuration>());
         }
 
-        public DbSet<Article> Articles { get; set; }
+        public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Tag> Tags { get; set; }
 

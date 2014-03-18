@@ -129,3 +129,5 @@ C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\bin\es\System.Web.Http.WebHost.re
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\obj\Debug\Woben.Web.csprojResolveAssemblyReference.cache
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\obj\Debug\Woben.Web.dll
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\obj\Debug\Woben.Web.pdb
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\bin\System.Web.Http.OData.dll
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\bin\System.Web.Http.OData.xml

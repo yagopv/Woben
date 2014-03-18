@@ -10,34 +10,32 @@ using System.Threading.Tasks;
 namespace Woben.Domain.Model
 {
     /// <summary>
-    /// Tags for the Articles
+    /// Tags for the products
     /// </summary>
-    [DataContract(IsReference = true)]
     public class Tag
     {
+        /// <summary>
+        /// Entity identity
+        /// </summary>
         [Key]
-        [DataMember]
-        public Guid TagId { get; set; }
+        public int TagId { get; set; }
 
         /// <summary>
         /// Tag Name
         /// </summary>
         [Required]
         [StringLength(100)]
-        [DataMember]
         public string Name { get; set; }
 
         /// <summary>
-        /// Related Article
+        /// Related product identity
         /// </summary>        
-        [DataMember]
-        public Guid ArticleId { get; set; }
+        public int ProductId { get; set; }
 
         /// <summary>
-        /// Related Article
+        /// Related product
         /// </summary>
-        [ForeignKey("ArticleId")]
-        [DataMember]
-        public Article Article { get; set; }
+        [ForeignKey("ProductId")]
+        public Product Product { get; set; }
     }
 }

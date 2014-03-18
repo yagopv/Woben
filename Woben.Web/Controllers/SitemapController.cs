@@ -7,19 +7,13 @@ using System.Web.Mvc;
 using Woben.Web.Results;
 using Woben.Web.SEO;
 using System.IO;
-using Woben.Domain.UnitOfWork;
+using Woben.Data;
 
 namespace Woben.Web.Controllers
 {
     public class SitemapController : Controller
     {
-        private IUnitOfWork UnitOfWork;
-
-        public SitemapController(IUnitOfWork unitofwork)
-        {
-            this.UnitOfWork = unitofwork;
-        }
-
+        WobenDbContext db = new WobenDbContext();
         //
         // GET: /Sitemap/
         public ActionResult Sitemap()
@@ -31,18 +25,18 @@ namespace Woben.Web.Controllers
             var sitemapItems = new List<SitemapItem>
             {                
                 new SitemapItem(leftpart + "/home/index", changeFrequency: SitemapChangeFrequency.Weekly, priority: 1.0),
-                new SitemapItem(leftpart + "/home/articles", changeFrequency: SitemapChangeFrequency.Daily, priority: 1.0),
+                new SitemapItem(leftpart + "/home/products", changeFrequency: SitemapChangeFrequency.Daily, priority: 1.0),
                 new SitemapItem(leftpart + "/home/help", changeFrequency: SitemapChangeFrequency.Weekly, priority: 1.0),
                 new SitemapItem(leftpart + "/home/about", changeFrequency: SitemapChangeFrequency.Monthly, priority: 1.0),
                 new SitemapItem(leftpart + "/account/login", changeFrequency: SitemapChangeFrequency.Monthly, priority: 0.5),
                 new SitemapItem(leftpart + "/account/register", changeFrequency: SitemapChangeFrequency.Monthly, priority: 0.5)
             };
 
-            var articles = UnitOfWork.ArticleRepository.All().Where(a => a.IsPublished);
+            var products = db.Products.Where(p => p.IsPublished);
 
-            foreach (var article in articles)
+            foreach (var product in products)
             {
-                sitemapItems.Add(new SitemapItem(leftpart + "/" + article.CreatedBy + "/" + article.Category.Name + "/" + article.UrlCodeReference, changeFrequency: SitemapChangeFrequency.Weekly, priority: 0.8));
+                sitemapItems.Add(new SitemapItem(leftpart + "/" + product.CreatedBy + "/" + product.Category.Name + "/" + product.UrlCodeReference, changeFrequency: SitemapChangeFrequency.Weekly, priority: 0.8));
             }
 
             return new SitemapResult(sitemapItems);

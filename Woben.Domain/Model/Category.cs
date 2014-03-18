@@ -10,27 +10,26 @@ using System.Threading.Tasks;
 namespace Woben.Domain.Model
 {
     /// <summary>
-    /// Categories for the Articles
+    /// Categories for the products
     /// </summary>
-    [DataContract(IsReference = true)]
     public class Category
     {
+        /// <summary>
+        /// Entity identity
+        /// </summary>
         [Key]
-        [DataMember]
-        public Guid CategoryId { get; set; }
+        public int CategoryId { get; set; }
 
         /// <summary>
         /// Category Name
         /// </summary>
         [StringLength(100)]
-        [DataMember]
         public string Name { get; set; }
 
         /// <summary>
         /// The category name accesible by url
         /// </summary>
         [StringLength(100)]
-        [DataMember]
         public string UrlCodeReference { get; set; }
 
         /// <summary>

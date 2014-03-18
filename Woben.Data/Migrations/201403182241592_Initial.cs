@@ -8,10 +8,20 @@ namespace Woben.Data.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Articles",
+                "dbo.Categories",
                 c => new
                     {
-                        ArticleId = c.Guid(nullable: false),
+                        CategoryId = c.Int(nullable: false, identity: true),
+                        Name = c.String(maxLength: 100),
+                        UrlCodeReference = c.String(maxLength: 100),
+                    })
+                .PrimaryKey(t => t.CategoryId);
+            
+            CreateTable(
+                "dbo.Products",
+                c => new
+                    {
+                        ProductId = c.Int(nullable: false, identity: true),
                         Title = c.String(nullable: false, maxLength: 200),
                         UrlCodeReference = c.String(maxLength: 200),
                         Description = c.String(nullable: false, maxLength: 500),
@@ -19,38 +29,28 @@ namespace Woben.Data.Migrations
                         Markdown = c.String(),
                         Html = c.String(),
                         IsPublished = c.Boolean(nullable: false),
-                        CategoryId = c.Guid(nullable: false),
+                        CategoryId = c.Int(nullable: false),
                         CreatedDate = c.DateTime(nullable: false),
                         UpdatedDate = c.DateTime(nullable: false),
                         CreatedBy = c.String(),
                         UpdatedBy = c.String(),
                         RowVersion = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.ArticleId)
+                .PrimaryKey(t => t.ProductId)
                 .ForeignKey("dbo.Categories", t => t.CategoryId)
                 .Index(t => t.CategoryId);
-            
-            CreateTable(
-                "dbo.Categories",
-                c => new
-                    {
-                        CategoryId = c.Guid(nullable: false),
-                        Name = c.String(maxLength: 100),
-                        UrlCodeReference = c.String(maxLength: 100),
-                    })
-                .PrimaryKey(t => t.CategoryId);
             
             CreateTable(
                 "dbo.Tags",
                 c => new
                     {
-                        TagId = c.Guid(nullable: false),
+                        TagId = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 100),
-                        ArticleId = c.Guid(nullable: false),
+                        ProductId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.TagId)
-                .ForeignKey("dbo.Articles", t => t.ArticleId)
-                .Index(t => t.ArticleId);
+                .ForeignKey("dbo.Products", t => t.ProductId)
+                .Index(t => t.ProductId);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -125,24 +125,24 @@ namespace Woben.Data.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Tags", "ArticleId", "dbo.Articles");
-            DropForeignKey("dbo.Articles", "CategoryId", "dbo.Categories");
+            DropForeignKey("dbo.Tags", "ProductId", "dbo.Products");
+            DropForeignKey("dbo.Products", "CategoryId", "dbo.Categories");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Tags", new[] { "ArticleId" });
-            DropIndex("dbo.Articles", new[] { "CategoryId" });
+            DropIndex("dbo.Tags", new[] { "ProductId" });
+            DropIndex("dbo.Products", new[] { "CategoryId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Tags");
+            DropTable("dbo.Products");
             DropTable("dbo.Categories");
-            DropTable("dbo.Articles");
         }
     }
 }

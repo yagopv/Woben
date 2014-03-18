@@ -5,7 +5,9 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Http.OData.Builder;
 
+using Woben.Domain.Model;
 using Woben.Web.Filters;
 
 namespace Woben.Web
@@ -22,6 +24,13 @@ namespace Woben.Web
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+            builder.EntitySet<Product>("Product");
+            builder.EntitySet<Category>("Categories");
+            builder.EntitySet<Tag>("Tag");
+            config.Routes.MapODataRoute("odata", "odata", builder.GetEdmModel());
+
         }
 
         public static void RegisterMVCRoutes(RouteCollection routes)

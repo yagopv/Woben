@@ -20,8 +20,8 @@ using Woben.Web.Models;
 using Woben.Web.Results;
 using Woben.Web.Providers;
 using Woben.Domain.Model;
-using Woben.Domain.UnitOfWork;
 using Woben.Web.Helpers;
+using Woben.Data;
 
 namespace Woben.Web.Controllers
 {
@@ -35,6 +35,8 @@ namespace Woben.Web.Controllers
 	{
 		private const string LocalLoginProvider = "Local";
 
+        WobenDbContext db = new WobenDbContext();
+
 		private ApplicationUserManager usermanager;
 		public ApplicationUserManager UserManager
 		{
@@ -47,16 +49,14 @@ namespace Woben.Web.Controllers
 				usermanager = value;
 			}
 		}
-		IUnitOfWork UnitOfwork { get; set; }
+
 		ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; set; }
 
 		/// <summary>
 		/// ctor
 		/// </summary>
-		public AccountController(IUnitOfWork unitofwork,                                  
-								 ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+		public AccountController(ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
 		{
-			this.UnitOfwork = unitofwork;
 			this.AccessTokenFormat = accessTokenFormat;
 		}
 
@@ -653,7 +653,7 @@ namespace Woben.Web.Controllers
 		[Authorize(Roles="Administrator")]
 		public IEnumerable<UserProfileViewModel> GetUsers()
 		{
-			var users = UnitOfwork.UserProfileRepository.All();
+			var users = db.Users.ToList();
 			return users.Select(user => new UserProfileViewModel { UserName = user.UserName }).ToList();
 		}
 
