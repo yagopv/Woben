@@ -38,6 +38,9 @@ namespace Woben.Web.Controllers
         // PUT odata/Product(5)
         public async Task<IHttpActionResult> Put([FromODataUri] int key, Product product)
         {
+            product.UpdatedDate = DateTime.UtcNow;
+            product.UpdatedBy = User.Identity.Name;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -72,6 +75,12 @@ namespace Woben.Web.Controllers
         // POST odata/Product
         public async Task<IHttpActionResult> Post(Product product)
         {
+            product.CreatedDate = DateTime.UtcNow;
+            product.UpdatedDate = DateTime.UtcNow;
+            product.CreatedBy = User.Identity.Name;
+            product.UpdatedBy = User.Identity.Name;
+            product.SetUrlReference();
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

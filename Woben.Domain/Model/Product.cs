@@ -90,6 +90,11 @@ namespace Woben.Domain.Model
         /// <param name="title">The string to convert</param>
         public void SetUrlReference()
         {
+            if (String.IsNullOrEmpty(this.Title))
+            {
+                return;
+            }
+
             char[] arr = this.Title.Where(c => (char.IsLetterOrDigit(c) || char.IsWhiteSpace(c))).ToArray();
             var urlcodereference = new string(arr);
             this.UrlCodeReference = urlcodereference.Trim().ToLower().Replace(" ", "-");

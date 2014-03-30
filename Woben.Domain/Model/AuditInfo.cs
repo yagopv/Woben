@@ -17,7 +17,6 @@ namespace Woben.Domain.Model
         /// <summary>
         /// ConcurrencyCheck
         /// </summary>        
-        [DataMember]
         [ConcurrencyCheck]
         public int RowVersion { get; internal set; }
     }
@@ -31,25 +30,21 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Date the entity was created
         /// </summary>
-        [DataMember]
         public DateTime CreatedDate { get; set; }
 
         /// <summary>
         /// Date the entity was updated
         /// </summary>
-        [DataMember]
         public DateTime UpdatedDate { get; set; }
 
         /// <summary>
         ///  User creating the entity
         /// </summary>
-        [DataMember]
         public string CreatedBy { get; set; }
 
         /// <summary>
         /// User updating the entity
         /// </summary>
-        [DataMember]
         public string UpdatedBy { get; set; }
     }
 }
