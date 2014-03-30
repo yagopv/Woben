@@ -12,7 +12,7 @@ C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\bin\Debug\EntityFramework.SqlSer
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.csprojResolveAssemblyReference.cache
-C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.dll
-C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.pdb
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.Migrations.Initial.resources
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.csproj.GenerateResource.Cache
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.dll
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.pdb

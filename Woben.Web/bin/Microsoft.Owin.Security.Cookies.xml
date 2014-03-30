@@ -228,6 +228,12 @@
             </summary>
             <param name="context">Contains information about the event</param>
         </member>
+        <member name="M:Microsoft.Owin.Security.Cookies.ICookieAuthenticationProvider.ResponseSignOut(Microsoft.Owin.Security.Cookies.CookieResponseSignOutContext)">
+            <summary>
+            
+            </summary>
+            <param name="context">Contains information about the login session as well as information about the authentication cookie.</param>
+        </member>
         <member name="M:Microsoft.Owin.Security.Cookies.CookieAuthenticationProvider.#ctor">
             <summary>
             Create a new instance of the default provider.
@@ -241,6 +247,12 @@
             <returns></returns>
         </member>
         <member name="M:Microsoft.Owin.Security.Cookies.CookieAuthenticationProvider.ResponseSignIn(Microsoft.Owin.Security.Cookies.CookieResponseSignInContext)">
+            <summary>
+            Implements the interface method by invoking the related delegate method
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Microsoft.Owin.Security.Cookies.CookieAuthenticationProvider.ResponseSignOut(Microsoft.Owin.Security.Cookies.CookieResponseSignOutContext)">
             <summary>
             Implements the interface method by invoking the related delegate method
             </summary>
@@ -262,6 +274,11 @@
             A delegate assigned to this property will be invoked when the related method is called
             </summary>
         </member>
+        <member name="P:Microsoft.Owin.Security.Cookies.CookieAuthenticationProvider.OnResponseSignOut">
+            <summary>
+            A delegate assigned to this property will be invoked when the related method is called
+            </summary>
+        </member>
         <member name="P:Microsoft.Owin.Security.Cookies.CookieAuthenticationProvider.OnApplyRedirect">
             <summary>
             A delegate assigned to this property will be invoked when the related method is called
@@ -272,17 +289,7 @@
             Context object passed to the ICookieAuthenticationProvider method ResponseSignIn.
             </summary>    
         </member>
-        <member name="M:Microsoft.Owin.Security.Cookies.CookieResponseSignInContext.#ctor(Microsoft.Owin.IOwinRequest,Microsoft.Owin.IOwinResponse,System.String,System.Security.Claims.ClaimsIdentity,Microsoft.Owin.Security.AuthenticationProperties)">
-            <summary>
-            Creates a new instance of the context object.
-            </summary>
-            <param name="request">Initializes Request property</param>
-            <param name="response">Initializes Response property</param>
-            <param name="authenticationType">Initializes AuthenticationType property</param>
-            <param name="identity">Initializes Identity property</param>
-            <param name="properties">Initializes Extra property</param>
-        </member>
-        <member name="M:Microsoft.Owin.Security.Cookies.CookieResponseSignInContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.Cookies.CookieAuthenticationOptions,System.String,System.Security.Claims.ClaimsIdentity,Microsoft.Owin.Security.AuthenticationProperties)">
+        <member name="M:Microsoft.Owin.Security.Cookies.CookieResponseSignInContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.Cookies.CookieAuthenticationOptions,System.String,System.Security.Claims.ClaimsIdentity,Microsoft.Owin.Security.AuthenticationProperties,Microsoft.Owin.CookieOptions)">
             <summary>
             Creates a new instance of the context object.
             </summary>
@@ -291,6 +298,7 @@
             <param name="authenticationType">Initializes AuthenticationType property</param>
             <param name="identity">Initializes Identity property</param>
             <param name="properties">Initializes Extra property</param>
+            <param name="cookieOptions">Initializes options for the authentication cookie.</param>
         </member>
         <member name="P:Microsoft.Owin.Security.Cookies.CookieResponseSignInContext.AuthenticationType">
             <summary>
@@ -309,16 +317,35 @@
             May be replaced or altered during the ResponseSignIn call.
             </summary>
         </member>
+        <member name="P:Microsoft.Owin.Security.Cookies.CookieResponseSignInContext.CookieOptions">
+            <summary>
+            The options for creating the outgoing cookie.
+            May be replace or altered during the ResponseSignIn call.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Owin.Security.Cookies.CookieResponseSignOutContext">
+            <summary>
+            Context object passed to the ICookieAuthenticationProvider method ResponseSignOut    
+            </summary>
+        </member>
+        <member name="M:Microsoft.Owin.Security.Cookies.CookieResponseSignOutContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.Cookies.CookieAuthenticationOptions,Microsoft.Owin.CookieOptions)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="options"></param>
+            <param name="cookieOptions"></param>
+        </member>
+        <member name="P:Microsoft.Owin.Security.Cookies.CookieResponseSignOutContext.CookieOptions">
+            <summary>
+            The options for creating the outgoing cookie.
+            May be replace or altered during the ResponseSignIn call.
+            </summary>
+        </member>
         <member name="T:Microsoft.Owin.Security.Cookies.CookieValidateIdentityContext">
             <summary>
             Context object passed to the ICookieAuthenticationProvider method ValidateIdentity.
             </summary>
-        </member>
-        <member name="M:Microsoft.Owin.Security.Cookies.CookieValidateIdentityContext.#ctor(Microsoft.Owin.Security.AuthenticationTicket)">
-            <summary>
-            Creates a new instance of the context object.
-            </summary>
-            <param name="ticket">Contains the initial values for identity and extra data</param>
         </member>
         <member name="M:Microsoft.Owin.Security.Cookies.CookieValidateIdentityContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.AuthenticationTicket,Microsoft.Owin.Security.Cookies.CookieAuthenticationOptions)">
             <summary>
@@ -349,7 +376,7 @@
         </member>
         <member name="P:Microsoft.Owin.Security.Cookies.CookieValidateIdentityContext.Properties">
             <summary>
-            Contains the extra metadata arriving with the request ticket. May be altered.
+            Contains the extra meta-data arriving with the request ticket. May be altered.
             </summary>
         </member>
     </members>

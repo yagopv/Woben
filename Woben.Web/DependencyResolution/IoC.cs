@@ -15,20 +15,12 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System.Web;
-using System.Threading;
 
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 
 using StructureMap;
 
-using Woben.Data;
-using Woben.Domain.Model;
 using Woben.Web.SEO;
-using Woben.Web.Helpers;
-using System.Security.Principal;
 
 namespace Woben.Web.DependencyResolution {
     public static class IoC {

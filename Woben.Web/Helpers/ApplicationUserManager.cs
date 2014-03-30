@@ -40,6 +40,8 @@ namespace Woben.Web.Helpers
             };
             manager.EmailService = new EmailService();
 
+            manager.UserLockoutEnabledByDefault = true;
+
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {

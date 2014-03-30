@@ -27,7 +27,7 @@ namespace Woben.Web
 
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
             builder.EntitySet<Product>("Product");
-            builder.EntitySet<Category>("Categories");
+            builder.EntitySet<Category>("Category");
             builder.EntitySet<Tag>("Tag");
             config.Routes.MapODataRoute("odata", "odata", builder.GetEdmModel());
 

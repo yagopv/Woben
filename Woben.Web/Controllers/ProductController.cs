@@ -16,7 +16,7 @@ using Woben.Data;
 
 namespace Woben.Web.Controllers
 {
-    [AllowAnonymous]
+    [Authorize(Roles="Administrator")]
     public class ProductController : ODataController
     {
         private WobenDbContext db = new WobenDbContext();

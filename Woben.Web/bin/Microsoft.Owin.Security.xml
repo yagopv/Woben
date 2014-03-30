@@ -256,6 +256,11 @@
             <param name="sslPolicyErrors">One or more errors associated with the remote certificate.</param>
             <returns>A Boolean value that determines whether the specified certificate is accepted for authentication.</returns>
         </member>
+        <member name="T:Microsoft.Owin.Security.Provider.BaseContext`1">
+            <summary>
+            Base class used for certain event contexts
+            </summary>
+        </member>
         <member name="T:Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider">
             <summary>
             Used to provide the data protection services that are derived from the Data Protection API. It is the best choice of
@@ -324,11 +329,6 @@
             <param name="authenticationType">The authentication type to look for</param>
             <param name="authenticationMode">The authentication mode the middleware is running under</param>
             <returns>The information instructing the middleware how it should behave</returns>
-        </member>
-        <member name="T:Microsoft.Owin.Security.Provider.BaseContext`1">
-            <summary>
-            Base class used for certain event contexts
-            </summary>
         </member>
         <member name="T:Microsoft.Owin.Security.Provider.EndpointContext`1">
             <summary>

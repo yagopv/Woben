@@ -144,7 +144,7 @@
         </member>
         <member name="P:Microsoft.Owin.Security.Facebook.FacebookApplyRedirectContext.Properties">
             <summary>
-            Gets the authenticaiton properties of the challenge
+            Gets the authentication properties of the challenge
             </summary>
         </member>
         <member name="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext">
