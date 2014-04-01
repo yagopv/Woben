@@ -358,11 +358,15 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Cloud\FileStatus.cs" />
+    <Compile Include="Cloud\Settings.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SitemapController.cs" />
+    <Compile Include="Controllers\StorageManagerController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyResolver.cs" />
@@ -372,8 +376,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ApplicationUserManager.cs" />
+    <Compile Include="Cloud\CloudBlobManager.cs" />
     <Compile Include="Helpers\EmailService.cs" />
+    <Compile Include="Cloud\ICloudBlobManager.cs" />
+    <Compile Include="Helpers\FileExtensionToMimeType.cs" />
     <Compile Include="Helpers\ViewRenderer.cs" />
+    <Compile Include="Cloud\BlobInfo.cs" />
+    <Compile Include="Helpers\WebAPIStreamResponseHelper.cs" />
     <Compile Include="Results\SitemapResult.cs" />
     <Compile Include="SEO\ISnapshot.cs" />
     <Compile Include="SEO\Snapshot.cs" />

@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Http.OData.Builder;
 
+using Newtonsoft.Json.Serialization;
+
 using Woben.Domain.Model;
 using Woben.Web.Filters;
 
@@ -24,6 +26,18 @@ namespace Woben.Web
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            // Remove Xml formatters. This means when we visit an endpoint from a browser,
+            // Instead of returning Xml, it will return Json.
+            // More information from Dave Ward: http://jpapa.me/P4vdx6
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+
+            // Configure json camelCasing per the following post: http://jpapa.me/NqC2HH
+            // Here we configure it to write JSON property names with camel casing
+            // without changing our server-side data model:
+            var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.ContractResolver =
+                new CamelCasePropertyNamesContractResolver();
 
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
             builder.EntitySet<Product>("Product");
