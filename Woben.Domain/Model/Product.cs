@@ -25,7 +25,7 @@ namespace Woben.Domain.Model
         /// </summary>
         [Required]
         [StringLength(200)]
-        public string Title { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// The title accesible by url
@@ -90,12 +90,12 @@ namespace Woben.Domain.Model
         /// <param name="title">The string to convert</param>
         public void SetUrlReference()
         {
-            if (String.IsNullOrEmpty(this.Title))
+            if (String.IsNullOrEmpty(this.Name))
             {
                 return;
             }
 
-            char[] arr = this.Title.Where(c => (char.IsLetterOrDigit(c) || char.IsWhiteSpace(c))).ToArray();
+            char[] arr = this.Name.Where(c => (char.IsLetterOrDigit(c) || char.IsWhiteSpace(c))).ToArray();
             var urlcodereference = new string(arr);
             this.UrlCodeReference = urlcodereference.Trim().ToLower().Replace(" ", "-");
         }

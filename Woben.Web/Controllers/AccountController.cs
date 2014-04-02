@@ -11,7 +11,6 @@ using System.Web.Http.ModelBinding;
 
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
@@ -22,6 +21,7 @@ using Woben.Web.Providers;
 using Woben.Domain.Model;
 using Woben.Web.Helpers;
 using Woben.Data;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Woben.Web.Controllers
 {

@@ -37,5 +37,27 @@ namespace Woben.Domain.Model
         /// </summary>
         [ForeignKey("ProductId")]
         public Product Product { get; set; }
+
+        /// <summary>
+        /// The category name accesible by url
+        /// </summary>
+        [StringLength(100)]
+        public string UrlCodeReference { get; set; }
+
+        /// <summary>
+        /// Create a url reference
+        /// </summary>
+        /// <param name="title">The string to convert</param>
+        public void SetUrlReference()
+        {
+            if (String.IsNullOrEmpty(this.Name))
+            {
+                return;
+            }
+
+            char[] arr = this.Name.Where(c => (char.IsLetterOrDigit(c) || char.IsWhiteSpace(c))).ToArray();
+            var urlcodereference = new string(arr);
+            this.UrlCodeReference = urlcodereference.Trim().ToLower().Replace(" ", "-");
+        }
     }
 }

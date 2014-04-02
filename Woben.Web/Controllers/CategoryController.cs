@@ -38,6 +38,8 @@ namespace Woben.Web.Controllers
         // PUT odata/Category(5)
         public async Task<IHttpActionResult> Put([FromODataUri] int key, Category category)
         {
+            category.SetUrlReference();
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -72,6 +74,8 @@ namespace Woben.Web.Controllers
         // POST odata/Category
         public async Task<IHttpActionResult> Post(Category category)
         {
+            category.SetUrlReference();
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

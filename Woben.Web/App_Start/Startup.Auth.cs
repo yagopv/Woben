@@ -5,7 +5,6 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 
 using Owin;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
 using Woben.Web.Providers;
 using System;
@@ -13,6 +12,7 @@ using Woben.Domain.Model;
 using Woben.Data;
 using Woben.Web.Helpers;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Woben.Web
 {

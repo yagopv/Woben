@@ -13500,20 +13500,26 @@
             <param name="cancellationToken">The cancellation token.</param>
             <returns>A task that represents the asynchronous operation.</returns>
         </member>
-        <member name="M:System.Data.Entity.Infrastructure.CommitFailureHandler.PruneTransactionHistory(System.Boolean)">
+        <member name="M:System.Data.Entity.Infrastructure.CommitFailureHandler.PruneTransactionHistory(System.Boolean,System.Boolean)">
             <summary>
             Removes the transactions marked for deletion if their number exceeds <see cref="P:System.Data.Entity.Infrastructure.CommitFailureHandler.PruningLimit"/>.
             </summary>
             <param name="force">
             if set to <c>true</c> will remove all the old transactions even if their number does not exceed <see cref="P:System.Data.Entity.Infrastructure.CommitFailureHandler.PruningLimit"/>.
             </param>
+            <param name="useExecutionStrategy">
+            if set to <c>true</c> the operation will be executed using the associated execution strategy
+            </param>
         </member>
-        <member name="M:System.Data.Entity.Infrastructure.CommitFailureHandler.PruneTransactionHistoryAsync(System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:System.Data.Entity.Infrastructure.CommitFailureHandler.PruneTransactionHistoryAsync(System.Boolean,System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Removes the transactions marked for deletion if their number exceeds <see cref="P:System.Data.Entity.Infrastructure.CommitFailureHandler.PruningLimit"/>.
             </summary>
             <param name="force">
             if set to <c>true</c> will remove all the old transactions even if their number does not exceed <see cref="P:System.Data.Entity.Infrastructure.CommitFailureHandler.PruningLimit"/>.
+            </param>
+            <param name="useExecutionStrategy">
+            if set to <c>true</c> the operation will be executed using the associated execution strategy
             </param>
             <param name="cancellationToken">The cancellation token.</param>
             <returns>A task that represents the asynchronous operation.</returns>
@@ -13570,6 +13576,12 @@
             <summary>
             Rrepresents a transaction
             </summary>
+        </member>
+        <member name="M:System.Data.Entity.Infrastructure.TransactionRow.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:System.Data.Entity.Infrastructure.TransactionRow.GetHashCode">
+            <inheritdoc />
         </member>
         <member name="P:System.Data.Entity.Infrastructure.TransactionRow.Id">
             <summary>
@@ -29784,6 +29796,30 @@
             Class representing a simple type
             </summary>
         </member>
+        <member name="M:System.Data.Entity.Core.Metadata.Edm.EnumType.Create(System.String,System.String,System.Data.Entity.Core.Metadata.Edm.PrimitiveType,System.Boolean,System.Collections.Generic.IEnumerable{System.Data.Entity.Core.Metadata.Edm.EnumMember},System.Collections.Generic.IEnumerable{System.Data.Entity.Core.Metadata.Edm.MetadataProperty})">
+            <summary>
+            Creates a read-only EnumType instance.
+            </summary>
+            <param name="name">The name of the enumeration type.</param>
+            <param name="namespaceName">The namespace of the enumeration type.</param>
+            <param name="underlyingType">The underlying type of the enumeration type.</param>
+            <param name="isFlags">Indicates whether the enumeration type can be treated as a bit field; that is, a set of flags.</param>
+            <param name="members">The members of the enumeration type.</param>
+            <param name="metadataProperties">Metadata properties to be associated with the enumeration type.</param>
+            <returns>The newly created EnumType instance.</returns>
+            <exception cref="T:System.ArgumentNullException">underlyingType is null.</exception>
+            <exception cref="T:System.ArgumentException">
+            name is null or empty.
+            -or-
+            namespaceName is null or empty.
+            -or-
+            underlyingType is not a supported underlying type.
+            -or-
+            The specified members do not have unique names.
+            -or-
+            The value of a specified member is not in the range of the underlying type.
+            </exception>
+        </member>
         <member name="P:System.Data.Entity.Core.Metadata.Edm.EnumType.BuiltInTypeKind">
             <summary> Returns the kind of the type </summary>
         </member>
@@ -30516,6 +30552,12 @@
             <summary>Removes a specific entity set from the container.</summary>
             <param name="entitySetBase">The entity set to remove.</param>
         </member>
+        <member name="M:System.Data.Entity.Core.Metadata.Edm.EntityContainer.AddFunctionImport(System.Data.Entity.Core.Metadata.Edm.EdmFunction)">
+            <summary>
+            Adds a function import to the container.
+            </summary>
+            <param name="function">The function import to add.</param>
+        </member>
         <member name="M:System.Data.Entity.Core.Metadata.Edm.EntityContainer.Create(System.String,System.Data.Entity.Core.Metadata.Edm.DataSpace,System.Collections.Generic.IEnumerable{System.Data.Entity.Core.Metadata.Edm.EntitySetBase},System.Collections.Generic.IEnumerable{System.Data.Entity.Core.Metadata.Edm.EdmFunction},System.Collections.Generic.IEnumerable{System.Data.Entity.Core.Metadata.Edm.MetadataProperty})">
             <summary>
             The factory method for constructing the EntityContainer object.
@@ -30637,6 +30679,56 @@
         <member name="M:System.Data.Entity.Core.Metadata.Edm.EnumMember.ToString">
             <summary> Overriding System.Object.ToString to provide better String representation for this type. </summary>
             <returns>The name of this enumeration member.</returns>
+        </member>
+        <member name="M:System.Data.Entity.Core.Metadata.Edm.EnumMember.Create(System.String,System.SByte,System.Collections.Generic.IEnumerable{System.Data.Entity.Core.Metadata.Edm.MetadataProperty})">
+            <summary>
+            Creates a read-only EnumMember instance.
+            </summary>
+            <param name="name">The name of the enumeration member.</param>
+            <param name="value">The value of the enumeration member.</param>
+            <param name="metadataProperties">Metadata properties to be associated with the enumeration member.</param>
+            <returns>The newly created EnumMember instance.</returns>
+            <exception cref="T:System.ArgumentException">name is null or empty.</exception>
+        </member>
+        <member name="M:System.Data.Entity.Core.Metadata.Edm.EnumMember.Create(System.String,System.Byte,System.Collections.Generic.IEnumerable{System.Data.Entity.Core.Metadata.Edm.MetadataProperty})">
+            <summary>
+            Creates a read-only EnumMember instance.
+            </summary>
+            <param name="name">The name of the enumeration member.</param>
+            <param name="value">The value of the enumeration member.</param>
+            <param name="metadataProperties">Metadata properties to be associated with the enumeration member.</param>
+            <returns>The newly created EnumMember instance.</returns>
+            <exception cref="T:System.ArgumentException">name is null or empty.</exception>
+        </member>
+        <member name="M:System.Data.Entity.Core.Metadata.Edm.EnumMember.Create(System.String,System.Int16,System.Collections.Generic.IEnumerable{System.Data.Entity.Core.Metadata.Edm.MetadataProperty})">
+            <summary>
+            Creates a read-only EnumMember instance.
+            </summary>
+            <param name="name">The name of the enumeration member.</param>
+            <param name="value">The value of the enumeration member.</param>
+            <param name="metadataProperties">Metadata properties to be associated with the enumeration member.</param>
+            <returns>The newly created EnumMember instance.</returns>
+            <exception cref="T:System.ArgumentException">name is null or empty.</exception>
+        </member>
+        <member name="M:System.Data.Entity.Core.Metadata.Edm.EnumMember.Create(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.Data.Entity.Core.Metadata.Edm.MetadataProperty})">
+            <summary>
+            Creates a read-only EnumMember instance.
+            </summary>
+            <param name="name">The name of the enumeration member.</param>
+            <param name="value">The value of the enumeration member.</param>
+            <param name="metadataProperties">Metadata properties to be associated with the enumeration member.</param>
+            <returns>The newly created EnumMember instance.</returns>
+            <exception cref="T:System.ArgumentException">name is null or empty.</exception>
+        </member>
+        <member name="M:System.Data.Entity.Core.Metadata.Edm.EnumMember.Create(System.String,System.Int64,System.Collections.Generic.IEnumerable{System.Data.Entity.Core.Metadata.Edm.MetadataProperty})">
+            <summary>
+            Creates a read-only EnumMember instance.
+            </summary>
+            <param name="name">The name of the enumeration member.</param>
+            <param name="value">The value of the enumeration member.</param>
+            <param name="metadataProperties">Metadata properties to be associated with the enumeration member.</param>
+            <returns>The newly created EnumMember instance.</returns>
+            <exception cref="T:System.ArgumentException">name is null or empty.</exception>
         </member>
         <member name="P:System.Data.Entity.Core.Metadata.Edm.EnumMember.BuiltInTypeKind">
             <summary> Gets the kind of this type. </summary>

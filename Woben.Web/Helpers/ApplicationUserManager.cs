@@ -6,10 +6,10 @@ using System.Web;
 using Microsoft.Owin;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 using Woben.Data;
 using Woben.Domain.Model;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Woben.Web.Helpers
 {
