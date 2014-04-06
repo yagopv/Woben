@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.WindowsAzure;
 using Woben.Web.Cloud;
+using System.Configuration;
 
 namespace Woben.Web.Controllers
 {
@@ -17,7 +18,7 @@ namespace Woben.Web.Controllers
 
         public StorageManagerController()
         {
-            string connectionString = CloudConfigurationManager.GetSetting("StorageConnectionString");
+            string connectionString = ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString;
 
             _cloudBlobManager = new CloudBlobManager();
             _cloudBlobManager.Initialize(connectionString);

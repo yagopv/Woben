@@ -13,5 +13,6 @@ namespace Woben.Web.Cloud
         void StoreFileInAzureStorage(string blobContainer, string filename, Stream stream);
         IEnumerable<BlobInfo> GetListOfBlobsFromContainer(string containerName);
         Stream DownloadBlob(BlobInfo blobInfo);
+        bool DeleteBlob(string containername, string file);
     }
 }

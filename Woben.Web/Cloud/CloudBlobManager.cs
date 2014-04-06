@@ -65,6 +65,18 @@ namespace Woben.Web.Cloud
             return stream;
         }
 
+        public bool DeleteBlob(string containername, string filename)
+        {
+            CloudBlobClient blobClient = _storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container = blobClient.GetContainerReference(containername);
+
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(filename);
+
+            blockBlob.Delete();
+
+            return true;
+        }
+
         private CloudBlobContainer GetBlobContainerCreateIfDoesntExists(string containerName)
         {
             CloudBlobContainer container = null;

@@ -13,11 +13,12 @@ using Microsoft.WindowsAzure;
 
 using Woben.Web.Cloud;
 using Woben.Web.Helpers;
+using System.Configuration;
 
 
 namespace Woben.Web.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles="Administrator")]
     public class FileController : ApiController
     {
         private ICloudBlobManager _cloudBlobManager;
@@ -25,13 +26,14 @@ namespace Woben.Web.Controllers
 
         public FileController()
         {
-            string connectionString = CloudConfigurationManager.GetSetting("StorageConnectionString");
+            string connectionString = ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString;
 
             _cloudBlobManager = new CloudBlobManager();
             _cloudBlobManager.Initialize(connectionString);
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public HttpResponseMessage Get(string filename)
         {
             BlobInfo blobInfo = new BlobInfo();
@@ -58,6 +60,13 @@ namespace Woben.Web.Controllers
         public HttpResponseMessage Put()
         {
             return UploadFile(HttpContext.Current);
+        }
+
+        [HttpDelete]
+        public HttpResponseMessage Delete(string filename)
+        {
+            _cloudBlobManager.DeleteBlob(Settings.RootContainerName, filename);
+            return new HttpResponseMessage(HttpStatusCode.NoContent);
         }
 
         private HttpResponseMessage UploadFile(HttpContext context)

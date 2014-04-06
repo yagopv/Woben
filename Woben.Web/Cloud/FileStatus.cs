@@ -38,7 +38,7 @@ namespace Woben.Web.Cloud
             type = "image/png";
             size = fileLength;
             progress = "1.0";
-            url = HandlerPath + "api/Upload?f=" + fileName;
+            url = HandlerPath + "api/File?filename=" + fileName;
         }
     }
 }
