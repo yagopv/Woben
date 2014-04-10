@@ -307,11 +307,11 @@ namespace Woben.Web.Controllers
 
 			// Cannot change passwords for test users
 			// Remove following lines for real usage
-			if (User.IsInRole("Administrator") || User.Identity.GetUserName() == "user")
-			{
-				ModelState.AddModelError("Unable to change the password", "Cannot change the admin password in this demo app. Remove lines in ChangePassword (AccountController) action for real usage");
-				return BadRequest(ModelState);
-			}
+            //if (User.IsInRole("Administrator") || User.Identity.GetUserName() == "user")
+            //{
+            //    ModelState.AddModelError("Unable to change the password", "Cannot change the admin password in this demo app. Remove lines in ChangePassword (AccountController) action for real usage");
+            //    return BadRequest(ModelState);
+            //}
 
 			IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
 				model.NewPassword);
