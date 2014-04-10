@@ -94,8 +94,8 @@ namespace Woben.Web.Providers
                     return;
                 }
 
-                userManager.ResetAccessFailedCount(user.Id);
-
+                await userManager.ResetAccessFailedCountAsync(user.Id);
+                
                 ClaimsIdentity oAuthIdentity = await userManager.CreateIdentityAsync(user,
                     context.Options.AuthenticationType);
                 ClaimsIdentity cookiesIdentity = await userManager.CreateIdentityAsync(user,
