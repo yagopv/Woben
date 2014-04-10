@@ -89,11 +89,12 @@ namespace Woben.Web.Providers
 
                     var possibleAttempts = userManager.MaxFailedAccessAttemptsBeforeLockout;
                     var currentcount = await userManager.GetAccessFailedCountAsync(user.Id);
-
+                    
                     context.SetError("invalid_grant", string.Format("Invalid password. Your account will be locked after {0} more failed attempts.", possibleAttempts - currentcount));
                     return;
                 }
 
+                userManager.ResetAccessFailedCount(user.Id);
 
                 ClaimsIdentity oAuthIdentity = await userManager.CreateIdentityAsync(user,
                     context.Options.AuthenticationType);
