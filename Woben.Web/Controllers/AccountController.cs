@@ -105,7 +105,8 @@ namespace Woben.Web.Controllers
 			IdentityResult result = await UserManager.ConfirmEmailAsync(userId, code);
 			if (result.Succeeded)
 			{
-				return Redirect(Url.Content("~/account/registrationcomplete"));
+				//return Redirect(Url.Content("~/account/registrationcomplete"));
+                return Redirect("http://localhost:3000/dashboard/registrationcomplete");
 			}
 
 			IHttpActionResult errorResult = GetErrorResult(result);
