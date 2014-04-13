@@ -184,7 +184,8 @@ namespace Woben.Web.Controllers
 				}
 
 				string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-				var callbackUrl = Url.Content("~/account/resetpassword?email=") + HttpUtility.UrlEncode(model.Email) + "&code=" + HttpUtility.UrlEncode(code);
+				//var callbackUrl = Url.Content("~/account/resetpassword?email=") + HttpUtility.UrlEncode(model.Email) + "&code=" + HttpUtility.UrlEncode(code);
+                var callbackUrl = "http://localhost:3000/resetPassword?email=" + HttpUtility.UrlEncode(model.Email) + "&code=" + HttpUtility.UrlEncode(code);
 
 				var notification = new AccountNotificationModel
 				{
