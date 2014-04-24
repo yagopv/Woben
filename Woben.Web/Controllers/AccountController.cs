@@ -106,7 +106,7 @@ namespace Woben.Web.Controllers
 			if (result.Succeeded)
 			{
 				//return Redirect(Url.Content("~/account/registrationcomplete"));
-                return Redirect("http://localhost:3000/dashboard/registrationcomplete");
+                return Redirect("http://localhost:3000/registrationcomplete");
 			}
 
 			IHttpActionResult errorResult = GetErrorResult(result);
