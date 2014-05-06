@@ -115,7 +115,7 @@ namespace Woben.Data.Migrations
                 UpdatedBy = "admin",
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
-                CategoryId = cat1.CategoryId,
+                CategoryId = cat3.CategoryId,
                 ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-3"
@@ -227,7 +227,7 @@ namespace Woben.Data.Migrations
                 UpdatedBy = "admin",
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
-                CategoryId = cat1.CategoryId,
+                CategoryId = cat2.CategoryId,
                 ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-10"
@@ -259,7 +259,7 @@ namespace Woben.Data.Migrations
                 UpdatedBy = "admin",
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
-                CategoryId = cat1.CategoryId,
+                CategoryId = cat2.CategoryId,
                 ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-12"
