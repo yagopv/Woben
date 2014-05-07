@@ -46,24 +46,28 @@ namespace Woben.Data.Migrations
 
             // Seed Categories
             var cat1 = new Category() {
+                CategoryId = 1,
                  Name = "Categoria 1",
                  Description = "Descripción Categoría 1",
                  UrlCodeReference = "categoria-1"
             };
             var cat2 = new Category()
             {
+                CategoryId = 2,
                 Name = "Categoria 2",
                 Description = "Descripción Categoría 2",
                 UrlCodeReference = "categoria-2"
             };
             var cat3 = new Category()
             {
+                CategoryId = 3,
                 Name = "Categoria 3",
                 Description = "Descripción Categoría 3",
                 UrlCodeReference = "categoria-3"
             };
             var cat4 = new Category()
             {
+                CategoryId = 4,
                 Name = "Categoria 4",
                 Description = "Descripción Categoría 4",
                 UrlCodeReference = "categoria-4"
