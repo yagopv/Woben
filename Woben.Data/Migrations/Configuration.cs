@@ -79,6 +79,7 @@ namespace Woben.Data.Migrations
 
             var product1 = new Product()
             {
+                 ProductId = 1,
                  Name = "Producto 1",
                  Description = "Descripción producto 1",
                  Markdown = "",
@@ -95,6 +96,7 @@ namespace Woben.Data.Migrations
 
             var product2 = new Product()
             {
+                ProductId = 2,
                 Name = "Producto 2",
                 Description = "Descripción producto 2",
                 Markdown = "",
@@ -111,6 +113,7 @@ namespace Woben.Data.Migrations
 
             var product3 = new Product()
             {
+                ProductId = 3,
                 Name = "Producto 3",
                 Description = "Descripción producto 3",
                 Markdown = "",
@@ -127,6 +130,7 @@ namespace Woben.Data.Migrations
 
             var product4 = new Product()
             {
+                ProductId = 4,
                 Name = "Producto 4",
                 Description = "Descripción producto 4",
                 Markdown = "",
@@ -143,6 +147,7 @@ namespace Woben.Data.Migrations
 
             var product5 = new Product()
             {
+                ProductId = 5,
                 Name = "Producto 5",
                 Description = "Descripción producto 5",
                 Markdown = "",
@@ -159,6 +164,7 @@ namespace Woben.Data.Migrations
 
             var product6 = new Product()
             {
+                ProductId = 6,
                 Name = "Producto 6",
                 Description = "Descripción producto 6",
                 Markdown = "",
@@ -175,6 +181,7 @@ namespace Woben.Data.Migrations
 
             var product7 = new Product()
             {
+                ProductId = 7,
                 Name = "Producto 7",
                 Description = "Descripción producto 7",
                 Markdown = "",
@@ -191,6 +198,7 @@ namespace Woben.Data.Migrations
 
             var product8 = new Product()
             {
+                ProductId = 8,
                 Name = "Producto 8",
                 Description = "Descripción producto 8",
                 Markdown = "",
@@ -207,6 +215,7 @@ namespace Woben.Data.Migrations
 
             var product9 = new Product()
             {
+                ProductId = 9,
                 Name = "Producto 9",
                 Description = "Descripción producto 9",
                 Markdown = "",
@@ -223,6 +232,7 @@ namespace Woben.Data.Migrations
 
             var product10 = new Product()
             {
+                ProductId = 10,
                 Name = "Producto 10",
                 Description = "Descripción producto 10",
                 Markdown = "",
@@ -239,6 +249,7 @@ namespace Woben.Data.Migrations
 
             var product11 = new Product()
             {
+                ProductId = 11,
                 Name = "Producto 11",
                 Description = "Descripción producto 11",
                 Markdown = "",
@@ -255,6 +266,7 @@ namespace Woben.Data.Migrations
 
             var product12 = new Product()
             {
+                ProductId = 12,
                 Name = "Producto 12",
                 Description = "Descripción producto 12",
                 Markdown = "",
@@ -271,6 +283,7 @@ namespace Woben.Data.Migrations
 
             var product13 = new Product()
             {
+                ProductId = 13,
                 Name = "Producto 13",
                 Description = "Descripción producto 13",
                 Markdown = "",
