@@ -11,4 +11,3 @@ C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\bin\Debug\Microsoft.AspNet.Ide
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\obj\Debug\Woben.Domain.dll
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\obj\Debug\Woben.Domain.pdb
-C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\obj\Debug\Woben.Domain.csprojResolveAssemblyReference.cache

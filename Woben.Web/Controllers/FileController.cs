@@ -35,7 +35,8 @@ namespace Woben.Web.Controllers
         [HttpGet]
         [AllowAnonymous]
         public HttpResponseMessage Get(string filename)
-        {
+        {            
+
             BlobInfo blobInfo = new BlobInfo();
 
             blobInfo.ParentContainerName = Settings.RootContainerName;
@@ -107,22 +108,25 @@ namespace Woben.Web.Controllers
         // Upload partial file
         private void UploadPartialFile(string fileName, HttpContext context, List<FilesStatus> statuses)
         {
+
             if (context.Request.Files.Count != 1) throw new HttpRequestValidationException("Attempt to upload chunked file containing more than one fragment per request");
             var inputStream = context.Request.Files[0].InputStream;
            
-            _cloudBlobManager.StoreFileInAzureStorage(Settings.RootContainerName, fileName, inputStream);
+            _cloudBlobManager.StoreFileInAzureStorage(Settings.RootContainerName,  Guid.NewGuid() + fileName, inputStream);
         }
 
         // Upload entire file
         private void UploadWholeFile(HttpContext context, List<FilesStatus> statuses)
-        {
+        {            
             for (int i = 0; i < context.Request.Files.Count; i++)
             {
                 var file = context.Request.Files[i];
 
-                _cloudBlobManager.StoreFileInAzureStorage(Settings.RootContainerName, file.FileName, file.InputStream);
-                
-                string fullName = Path.GetFileName(file.FileName);
+                var name = Guid.NewGuid() + file.FileName;
+
+                _cloudBlobManager.StoreFileInAzureStorage(Settings.RootContainerName, name, file.InputStream);
+
+                string fullName = Path.GetFileName(name);
                 statuses.Add(new FilesStatus(fullName, file.ContentLength));
             }
         }
