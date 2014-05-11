@@ -89,7 +89,6 @@ namespace Woben.Data.Migrations
                  CreatedDate = DateTime.UtcNow,
                  UpdatedDate = DateTime.UtcNow,
                  CategoryId = cat1.CategoryId,
-                 ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                  IsPublished = true,
                  UrlCodeReference = "producto-1"                  
             };
@@ -106,7 +105,6 @@ namespace Woben.Data.Migrations
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
                 CategoryId = cat1.CategoryId,
-                ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-2"
             };
@@ -123,7 +121,6 @@ namespace Woben.Data.Migrations
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
                 CategoryId = cat3.CategoryId,
-                ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-3"
             };
@@ -140,7 +137,6 @@ namespace Woben.Data.Migrations
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
                 CategoryId = cat1.CategoryId,
-                ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-4"
             };
@@ -157,7 +153,6 @@ namespace Woben.Data.Migrations
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
                 CategoryId = cat1.CategoryId,
-                ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-5"
             };
@@ -174,7 +169,6 @@ namespace Woben.Data.Migrations
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
                 CategoryId = cat1.CategoryId,
-                ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-6"
             };
@@ -191,7 +185,6 @@ namespace Woben.Data.Migrations
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
                 CategoryId = cat1.CategoryId,
-                ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-7"
             };
@@ -208,7 +201,6 @@ namespace Woben.Data.Migrations
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
                 CategoryId = cat1.CategoryId,
-                ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-8"
             };
@@ -225,7 +217,6 @@ namespace Woben.Data.Migrations
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
                 CategoryId = cat1.CategoryId,
-                ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-9"
             };
@@ -242,7 +233,6 @@ namespace Woben.Data.Migrations
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
                 CategoryId = cat2.CategoryId,
-                ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-10"
             };
@@ -259,7 +249,6 @@ namespace Woben.Data.Migrations
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
                 CategoryId = cat1.CategoryId,
-                ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-11"
             };
@@ -276,7 +265,6 @@ namespace Woben.Data.Migrations
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
                 CategoryId = cat2.CategoryId,
-                ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-12"
             };
@@ -293,12 +281,27 @@ namespace Woben.Data.Migrations
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
                 CategoryId = cat1.CategoryId,
-                ImageUrl = "http://www.google.es/imgres?imgurl=http%3A%2F%2Ftcnandroid.com%2Fwp-content%2Fthemes%2Fflavor%2Fimages%2Fplaceholder-320.png&imgrefurl=http%3A%2F%2Ftcnandroid.com%2F%3Ftag%3Denemigo-de-whatsapp&h=205&w=320&tbnid=W5-FwaOhalYWqM%3A&zoom=1&docid=oGV2O34jJdSMqM&ei=F2xmU4XMD6aU0AXdvoGgCA&tbm=isch&ved=0CEIQMyg6MDo4yAE&iact=rc&uact=3&dur=1212&page=10&start=234&ndsp=29",
                 IsPublished = true,
                 UrlCodeReference = "producto-13"
             };
 
-            context.Products.AddOrUpdate(product1, product2, product3, product4, product5, product6, product7, product8, product9, product10, product11, product12, product13);
+            var product14 = new Product()
+            {
+                ProductId = 14,
+                Name = "Producto 14",
+                Description = "Descripción producto 14",
+                Markdown = "",
+                Html = "",
+                CreatedBy = "admin",
+                UpdatedBy = "admin",
+                CreatedDate = DateTime.UtcNow,
+                UpdatedDate = DateTime.UtcNow,
+                CategoryId = cat3.CategoryId,
+                IsPublished = false,
+                UrlCodeReference = "producto-14"
+            };
+
+            context.Products.AddOrUpdate(product1, product2, product3, product4, product5, product6, product7, product8, product9, product10, product11, product12, product13, product14);
 
             context.SaveChanges();
         }

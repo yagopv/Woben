@@ -3,7 +3,7 @@ namespace Woben.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -25,12 +25,12 @@ namespace Woben.Data.Migrations
                         ProductId = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 200),
                         UrlCodeReference = c.String(maxLength: 200),
-                        Description = c.String(nullable: false, maxLength: 500),
-                        ImageUrl = c.String(nullable: false, maxLength: 500),
+                        Description = c.String(maxLength: 500),
+                        ImageUrl = c.String(maxLength: 500),
                         Markdown = c.String(),
                         Html = c.String(),
                         IsPublished = c.Boolean(nullable: false),
-                        CategoryId = c.Int(nullable: false),
+                        CategoryId = c.Int(),
                         CreatedDate = c.DateTime(nullable: false),
                         UpdatedDate = c.DateTime(nullable: false),
                         CreatedBy = c.String(),

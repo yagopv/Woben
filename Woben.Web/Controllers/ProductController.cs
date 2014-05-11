@@ -51,6 +51,23 @@ namespace Woben.Web.Controllers
                 return BadRequest();
             }
 
+            if (product.Tags != null)
+            {
+                // Add new tags
+                foreach (var tag in product.Tags.ToList())
+                {
+                    if (tag.TagId == 0)
+                    {
+                        tag.SetUrlReference();
+                        db.Tags.Add(tag);
+                    }
+                    else if (tag.TagId == -1)
+                    {
+                        db.Tags.Remove(tag);
+                    }
+                }
+            }
+
             db.Entry(product).State = EntityState.Modified;
 
             try
@@ -67,7 +84,7 @@ namespace Woben.Web.Controllers
                 {
                     throw;
                 }
-            }
+            }            
 
             return Updated(product);
         }
@@ -169,6 +186,59 @@ namespace Woben.Web.Controllers
         private bool ProductExists(int key)
         {
             return db.Products.Count(e => e.ProductId == key) > 0;
+        }
+
+        private void UpdateRelatedTags(Product updatedProduct)
+        {
+
+            var product = db.Products.Include(p => p.Tags).Where(p => p.ProductId == updatedProduct.ProductId).First();
+
+            if (product == null)
+            {
+                return;
+            }
+
+            var originalTags = updatedProduct.Tags.ToList();
+
+            if (originalTags == null)
+            {
+                foreach (var tag in updatedProduct.Tags.ToList())
+                {
+                    var newTag = new Tag()
+                    {
+                        Name = tag.Name,
+                        ProductId = updatedProduct.ProductId
+                    };
+                    newTag.SetUrlReference();
+                    db.Tags.Add(newTag);
+                }
+            }
+            else
+            {
+                // Add new tags
+                foreach (var tag in updatedProduct.Tags.ToList())
+                {
+                    if (!originalTags.Any(t => t.Name == tag.Name))
+                    {
+                        var newTag = new Tag()
+                        {
+                            Name = tag.Name,
+                            ProductId = updatedProduct.ProductId
+                        };
+                        newTag.SetUrlReference();
+                        db.Tags.Add(newTag);
+                    }
+                }
+
+                // Delete non existent
+                foreach (var tag in product.Tags.ToList())
+                {
+                    if (!updatedProduct.Tags.Any(t => t.Name == tag.Name))
+                    {
+                        db.Tags.Remove(tag);
+                    }
+                }
+            }
         }
     }
 }

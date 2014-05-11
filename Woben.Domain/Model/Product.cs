@@ -36,14 +36,12 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Description for this product
         /// </summary>
-        [Required]
         [StringLength(500)]
         public string Description { get; set; }
 
         /// <summary>
         /// Url for the image representing the post
         /// </summary>
-        [Required]
         [StringLength(500)]
         [DataType(DataType.ImageUrl)]
         public string ImageUrl { get; set; }
@@ -62,15 +60,12 @@ namespace Woben.Domain.Model
         /// <summary>
         /// If the product is published and visible to others or not
         /// </summary>
-        [Required]
         public bool IsPublished { get; set; }
-
 
         /// <summary>
         /// Foreign CategoryId key
         /// </summary> 
-        [DataMember]
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
 
         /// <summary>
         /// Related Category
@@ -81,7 +76,6 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Related Tags
         /// </summary>
-        [DataMember]
         public  ICollection<Tag> Tags { get; set; }
 
         /// <summary>

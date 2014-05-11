@@ -37,12 +37,15 @@ namespace Woben.Web
             // without changing our server-side data model:
             var json = config.Formatters.JsonFormatter;
             json.SerializerSettings.ContractResolver =
-                new CamelCasePropertyNamesContractResolver();
+                new CamelCasePropertyNamesContractResolver();            
 
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
             builder.EntitySet<Product>("Product");
             builder.EntitySet<Category>("Category");
             builder.EntitySet<Tag>("Tag");
+
+            builder.Entity<Product>().Action("UpdateRelatedTags").CollectionParameter<string>("Tags");
+
             config.Routes.MapODataRoute("odata", "odata", builder.GetEdmModel());
 
         }
