@@ -86,7 +86,7 @@ namespace Woben.Web.Controllers
                 }
             }            
 
-            return Updated(product);
+            return Ok(product);
         }
 
         // POST odata/Product
