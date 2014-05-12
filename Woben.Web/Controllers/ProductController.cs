@@ -63,8 +63,9 @@ namespace Woben.Web.Controllers
                     }
                     else if (tag.TagId == -1)
                     {
-                        var originalTag = await db.Tags.Where(t => t.Name == tag.Name).FirstAsync();
-                        product.Tags.Remove(originalTag);
+                        var originalTag = await db.Tags.FindAsync(tag.TagId);
+                        product.Tags.Remove(tag);
+                        db.Tags.Remove(originalTag);
                     }
                 }
             }
