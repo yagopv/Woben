@@ -86,9 +86,7 @@ namespace Woben.Web.Controllers
                 }
             }            
 
-            var updatedProduct = await db.Products.Include(p => p.Category).Include(p => p.Tags).Where(p => p.ProductId == product.ProductId).FirstAsync()
-
-            return Ok(updatedProduct);
+            return Ok(product);
         }
 
         // POST odata/Product
