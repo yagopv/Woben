@@ -54,7 +54,7 @@ namespace Woben.Web.Controllers
             if (product.Tags != null)
             {
                 // Add new tags
-                foreach (var tag in product.Tags.ToList())
+                foreach (var tag in product.Tags)
                 {
                     if (tag.TagId == 0)
                     {
@@ -62,10 +62,8 @@ namespace Woben.Web.Controllers
                         db.Tags.Add(tag);
                     }
                     else if (tag.TagId == -1)
-                    {
-                        var originalTag = await db.Tags.FindAsync(tag.TagId);
-                        product.Tags.Remove(tag);
-                        db.Tags.Remove(originalTag);
+                    {                                             
+                        db.Tags.Remove(tag);
                     }
                 }
             }
