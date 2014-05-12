@@ -43,8 +43,7 @@ namespace Woben.Web
             builder.EntitySet<Product>("Product");
             builder.EntitySet<Category>("Category");
             builder.EntitySet<Tag>("Tag");
-
-            builder.Entity<Product>().Action("UpdateRelatedTags").CollectionParameter<string>("Tags");
+            builder.EntitySet<Feature>("Feature");
 
             config.Routes.MapODataRoute("odata", "odata", builder.GetEdmModel());
 
