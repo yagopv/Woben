@@ -14,5 +14,3 @@ C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\bin\Debug\Microsoft.AspNet.Ident
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.csprojResolveAssemblyReference.cache
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.dll
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.pdb
-C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.Migrations.initial.resources
-C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.csproj.GenerateResource.Cache

@@ -54,7 +54,7 @@ namespace Woben.Web.Controllers
             if (product.Tags != null)
             {
                 // Add new tags
-                foreach (var tag in product.Tags)
+                foreach (var tag in product.Tags.ToList())
                 {
                     if (tag.TagId == 0)
                     {
@@ -62,8 +62,36 @@ namespace Woben.Web.Controllers
                         db.Tags.Add(tag);
                     }
                     else if (tag.TagId == -1)
-                    {                                             
-                        db.Tags.Remove(tag);
+                    {
+                        var originalTag = await db.Tags.Where(t => t.Name == tag.Name && t.ProductId == t.ProductId).FirstAsync();
+                        if (originalTag != null)
+                        {
+                            product.Tags.Remove(tag);
+                            db.Tags.Remove(originalTag);
+                        }
+                        
+                    }
+                }
+            }
+
+            if (product.Features != null)
+            {
+                // Add new tags
+                foreach (var feature in product.Features.ToList())
+                {
+                    if (feature.FeatureId == 0)
+                    {
+                        db.Features.Add(feature);
+                    }
+                    else if (feature.FeatureId == -1)
+                    {
+                        var originalFeaure = await db.Features.Where(f => f.Name == feature.Name && f.ProductId == f.ProductId).FirstAsync();
+                        if (originalFeaure != null)
+                        {
+                            product.Features.Remove(feature);
+                            db.Features.Remove(originalFeaure);
+                        }
+
                     }
                 }
             }

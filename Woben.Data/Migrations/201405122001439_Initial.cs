@@ -3,7 +3,7 @@ namespace Woben.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -17,6 +17,19 @@ namespace Woben.Data.Migrations
                         UrlCodeReference = c.String(maxLength: 100),
                     })
                 .PrimaryKey(t => t.CategoryId);
+            
+            CreateTable(
+                "dbo.Features",
+                c => new
+                    {
+                        FeatureId = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 100),
+                        Description = c.String(maxLength: 500),
+                        ProductId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.FeatureId)
+                .ForeignKey("dbo.Products", t => t.ProductId)
+                .Index(t => t.ProductId);
             
             CreateTable(
                 "dbo.Products",
@@ -131,6 +144,7 @@ namespace Woben.Data.Migrations
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Tags", "ProductId", "dbo.Products");
+            DropForeignKey("dbo.Features", "ProductId", "dbo.Products");
             DropForeignKey("dbo.Products", "CategoryId", "dbo.Categories");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
@@ -140,6 +154,7 @@ namespace Woben.Data.Migrations
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Tags", new[] { "ProductId" });
             DropIndex("dbo.Products", new[] { "CategoryId" });
+            DropIndex("dbo.Features", new[] { "ProductId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
@@ -147,6 +162,7 @@ namespace Woben.Data.Migrations
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Tags");
             DropTable("dbo.Products");
+            DropTable("dbo.Features");
             DropTable("dbo.Categories");
         }
     }

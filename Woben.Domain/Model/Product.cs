@@ -79,6 +79,11 @@ namespace Woben.Domain.Model
         public  ICollection<Tag> Tags { get; set; }
 
         /// <summary>
+        /// Related Features
+        /// </summary>
+        public ICollection<Feature> Features { get; set; }
+
+        /// <summary>
         /// Create a url reference
         /// </summary>
         /// <param name="title">The string to convert</param>
