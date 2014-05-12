@@ -63,7 +63,7 @@ namespace Woben.Web.Controllers
                     }
                     else if (tag.Name == "-1")
                     {
-                        db.Tags.Remove(tag);
+                        product.Tags.Remove(tag);
                     }
                 }
             }
