@@ -61,9 +61,10 @@ namespace Woben.Web.Controllers
                         tag.SetUrlReference();
                         db.Tags.Add(tag);
                     }
-                    else if (tag.Name == "-1")
+                    else if (tag.TagId == -1)
                     {
-                        product.Tags.Remove(tag);
+                        var originalTag = await db.Tags.Where(t => t.Name == tag.Name).FirstAsync();
+                        product.Tags.Remove(originalTag);
                     }
                 }
             }
