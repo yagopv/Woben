@@ -61,7 +61,7 @@ namespace Woben.Web.Controllers
                         tag.SetUrlReference();
                         db.Tags.Add(tag);
                     }
-                    else if (tag.TagId == -1)
+                    else if (tag.Name == "-1")
                     {
                         db.Tags.Remove(tag);
                     }
@@ -86,7 +86,9 @@ namespace Woben.Web.Controllers
                 }
             }            
 
-            return Ok(product);
+            var updatedProduct = await db.Products.Include(p => p.Category).Include(p => p.Tags).Where(p => p.ProductId == product.ProductId).FirstAsync()
+
+            return Ok(updatedProduct);
         }
 
         // POST odata/Product
