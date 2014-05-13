@@ -84,6 +84,11 @@ namespace Woben.Domain.Model
         public ICollection<Feature> Features { get; set; }
 
         /// <summary>
+        /// Related Messages
+        /// </summary>
+        public ICollection<Message> Messages { get; set; }
+
+        /// <summary>
         /// Create a url reference
         /// </summary>
         /// <param name="title">The string to convert</param>

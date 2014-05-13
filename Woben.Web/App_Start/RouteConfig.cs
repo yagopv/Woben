@@ -44,6 +44,7 @@ namespace Woben.Web
             builder.EntitySet<Category>("Category");
             builder.EntitySet<Tag>("Tag");
             builder.EntitySet<Feature>("Feature");
+            builder.EntitySet<Message>("Message");
 
             config.Routes.MapODataRoute("odata", "odata", builder.GetEdmModel());
 

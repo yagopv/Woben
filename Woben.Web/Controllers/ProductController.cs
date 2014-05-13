@@ -59,11 +59,12 @@ namespace Woben.Web.Controllers
                     if (tag.TagId == 0)
                     {
                         tag.SetUrlReference();
+                        tag.Identity = Guid.NewGuid();
                         db.Tags.Add(tag);
                     }
                     else if (tag.TagId == -1)
                     {
-                        var originalTag = await db.Tags.Where(t => t.Name == tag.Name && t.ProductId == t.ProductId).FirstAsync();
+                        var originalTag = await db.Tags.Where(t => t.Identity == tag.Identity && t.ProductId == t.ProductId).FirstAsync();
                         if (originalTag != null)
                         {
                             product.Tags.Remove(tag);
@@ -81,11 +82,12 @@ namespace Woben.Web.Controllers
                 {
                     if (feature.FeatureId == 0)
                     {
+                        feature.Identity = Guid.NewGuid();
                         db.Features.Add(feature);
                     }
                     else if (feature.FeatureId == -1)
                     {
-                        var originalFeaure = await db.Features.Where(f => f.Name == feature.Name && f.ProductId == f.ProductId).FirstAsync();
+                        var originalFeaure = await db.Features.Where(f => f.Identity == feature.Identity && f.ProductId == f.ProductId).FirstAsync();
                         if (originalFeaure != null)
                         {
                             product.Features.Remove(feature);

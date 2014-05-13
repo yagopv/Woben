@@ -359,8 +359,10 @@
     <Compile Include="Cloud\Settings.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\FeatureController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SitemapController.cs" />
     <Compile Include="Controllers\StorageManagerController.cs" />

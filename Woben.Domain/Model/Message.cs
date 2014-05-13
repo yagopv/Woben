@@ -3,52 +3,49 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Woben.Domain.Model
 {
     /// <summary>
-    /// Features for the products
+    /// Messages
     /// </summary>
-    public class Feature
+    public class Message
     {
         /// <summary>
         /// Entity identity
         /// </summary>
         [Key]
-        public int FeatureId { get; set; }
+        public int MessageId { get; set; }
 
         /// <summary>
-        /// Feature Name
+        /// Message Title
         /// </summary>
         [Required]
         [StringLength(100)]
-        [Index]
-        public string Name { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
-        /// Feature Description
+        /// Message Body
         /// </summary>
-        [StringLength(500)]
-        public string Description { get; set; }
+        public string Text { get; set; }
 
         /// <summary>
         /// Related product identity
-        /// </summary>        
-        public int ProductId { get; set; }
+        /// </summary>
+        public int? ProductId { get; set; }
+
+        /// <summary>
+        /// User sent the Message
+        /// </summary>
+        [Index]
+        public string User { get; set; }
 
         /// <summary>
         /// Related product
         /// </summary>
         [ForeignKey("ProductId")]
         public Product Product { get; set; }
-
-        /// <summary>
-        /// Unique Identity for add/delete/update operations
-        /// </summary>
-        [Index]
-        public Guid Identity { get; set; }
     }
 }

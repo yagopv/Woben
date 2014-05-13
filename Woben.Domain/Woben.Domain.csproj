@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Feature.cs" />
+    <Compile Include="Model\Message.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\AuditInfo.cs" />
     <Compile Include="Model\Category.cs" />
