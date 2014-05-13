@@ -23,9 +23,9 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Tag Name
         /// </summary>
+        [Index]
         [Required]
         [StringLength(100)]
-        [Index]
         public string Name { get; set; }
 
         /// <summary>
@@ -42,14 +42,14 @@ namespace Woben.Domain.Model
         /// <summary>
         /// The category name accesible by url
         /// </summary>
-        [StringLength(100)]
-        [Index]
+        [Index(IsUnique = true)]
+        [StringLength(100)]        
         public string UrlCodeReference { get; set; }
 
         /// <summary>
         /// Unique Identity for add/delete/update operations
         /// </summary>
-        [Index]
+        [Index(IsUnique = true)]
         public Guid Identity { get; set; }
 
         /// <summary>

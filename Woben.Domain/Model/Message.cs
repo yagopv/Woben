@@ -11,7 +11,7 @@ namespace Woben.Domain.Model
     /// <summary>
     /// Messages
     /// </summary>
-    public class Message
+    public class Message : AuditInfoBase
     {
         /// <summary>
         /// Entity identity
@@ -35,12 +35,6 @@ namespace Woben.Domain.Model
         /// Related product identity
         /// </summary>
         public int? ProductId { get; set; }
-
-        /// <summary>
-        /// User sent the Message
-        /// </summary>
-        [Index]
-        public string User { get; set; }
 
         /// <summary>
         /// Related product

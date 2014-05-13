@@ -17,8 +17,8 @@ namespace Woben.Data.Migrations
                         UrlCodeReference = c.String(maxLength: 100),
                     })
                 .PrimaryKey(t => t.CategoryId)
-                .Index(t => t.Name)
-                .Index(t => t.UrlCodeReference);
+                .Index(t => t.Name, unique: true)
+                .Index(t => t.UrlCodeReference, unique: true);
             
             CreateTable(
                 "dbo.Features",
@@ -32,9 +32,8 @@ namespace Woben.Data.Migrations
                     })
                 .PrimaryKey(t => t.FeatureId)
                 .ForeignKey("dbo.Products", t => t.ProductId)
-                .Index(t => t.Name)
                 .Index(t => t.ProductId)
-                .Index(t => t.Identity);
+                .Index(t => t.Identity, unique: true);
             
             CreateTable(
                 "dbo.Products",
@@ -51,13 +50,15 @@ namespace Woben.Data.Migrations
                         CategoryId = c.Int(),
                         CreatedDate = c.DateTime(nullable: false),
                         UpdatedDate = c.DateTime(nullable: false),
-                        CreatedBy = c.String(),
-                        UpdatedBy = c.String(),
+                        CreatedBy = c.String(maxLength: 100),
+                        UpdatedBy = c.String(maxLength: 100),
                         RowVersion = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ProductId)
                 .ForeignKey("dbo.Categories", t => t.CategoryId)
-                .Index(t => t.CategoryId);
+                .Index(t => t.CategoryId)
+                .Index(t => t.CreatedBy)
+                .Index(t => t.UpdatedBy);
             
             CreateTable(
                 "dbo.Messages",
@@ -67,12 +68,11 @@ namespace Woben.Data.Migrations
                         Title = c.String(nullable: false, maxLength: 100),
                         Text = c.String(),
                         ProductId = c.Int(),
-                        User = c.String(),
+                        RowVersion = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.MessageId)
                 .ForeignKey("dbo.Products", t => t.ProductId)
-                .Index(t => t.ProductId)
-                .Index(t => t.User);
+                .Index(t => t.ProductId);
             
             CreateTable(
                 "dbo.Tags",
@@ -88,8 +88,8 @@ namespace Woben.Data.Migrations
                 .ForeignKey("dbo.Products", t => t.ProductId)
                 .Index(t => t.Name)
                 .Index(t => t.ProductId)
-                .Index(t => t.UrlCodeReference)
-                .Index(t => t.Identity);
+                .Index(t => t.UrlCodeReference, unique: true)
+                .Index(t => t.Identity, unique: true);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -119,11 +119,14 @@ namespace Woben.Data.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(maxLength: 100),
+                        FirstName = c.String(maxLength: 100),
+                        Lastname = c.String(maxLength: 100),
+                        PhoneNumber = c.String(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
                         SecurityStamp = c.String(),
-                        PhoneNumber = c.String(),
                         PhoneNumberConfirmed = c.Boolean(nullable: false),
                         TwoFactorEnabled = c.Boolean(nullable: false),
                         LockoutEndDateUtc = c.DateTime(),
@@ -181,12 +184,12 @@ namespace Woben.Data.Migrations
             DropIndex("dbo.Tags", new[] { "UrlCodeReference" });
             DropIndex("dbo.Tags", new[] { "ProductId" });
             DropIndex("dbo.Tags", new[] { "Name" });
-            DropIndex("dbo.Messages", new[] { "User" });
             DropIndex("dbo.Messages", new[] { "ProductId" });
+            DropIndex("dbo.Products", new[] { "UpdatedBy" });
+            DropIndex("dbo.Products", new[] { "CreatedBy" });
             DropIndex("dbo.Products", new[] { "CategoryId" });
             DropIndex("dbo.Features", new[] { "Identity" });
             DropIndex("dbo.Features", new[] { "ProductId" });
-            DropIndex("dbo.Features", new[] { "Name" });
             DropIndex("dbo.Categories", new[] { "UrlCodeReference" });
             DropIndex("dbo.Categories", new[] { "Name" });
             DropTable("dbo.AspNetUserLogins");

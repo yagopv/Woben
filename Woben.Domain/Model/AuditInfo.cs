@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Woben.Domain.Model
 {
@@ -40,11 +41,15 @@ namespace Woben.Domain.Model
         /// <summary>
         ///  User creating the entity
         /// </summary>
+        [StringLength(100)]
+        [Index(IsUnique=false)]
         public string CreatedBy { get; set; }
 
         /// <summary>
         /// User updating the entity
         /// </summary>
+        [StringLength(100)]
+        [Index(IsUnique = false)]
         public string UpdatedBy { get; set; }
     }
 }

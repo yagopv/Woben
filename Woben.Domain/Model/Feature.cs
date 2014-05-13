@@ -24,8 +24,7 @@ namespace Woben.Domain.Model
         /// Feature Name
         /// </summary>
         [Required]
-        [StringLength(100)]
-        [Index]
+        [StringLength(100)]        
         public string Name { get; set; }
 
         /// <summary>
@@ -48,7 +47,7 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Unique Identity for add/delete/update operations
         /// </summary>
-        [Index]
+        [Index(IsUnique=true)]
         public Guid Identity { get; set; }
     }
 }

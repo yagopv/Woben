@@ -23,9 +23,9 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Category Name
         /// </summary>
+        [Index(IsUnique=true)]
         [Required]
-        [StringLength(100)]
-        [Index]
+        [StringLength(100)]        
         public string Name { get; set; }
 
         /// <summary>
@@ -37,8 +37,8 @@ namespace Woben.Domain.Model
         /// <summary>
         /// The category name accesible by url
         /// </summary>
+        [Index(IsUnique=true)]
         [StringLength(100)]
-        [Index]
         public string UrlCodeReference { get; set; }
 
         /// <summary>
