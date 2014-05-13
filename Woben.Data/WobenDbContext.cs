@@ -24,6 +24,7 @@ namespace Woben.Data
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Feature> Features { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

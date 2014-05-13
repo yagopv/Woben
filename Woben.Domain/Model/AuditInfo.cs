@@ -12,7 +12,6 @@ namespace Woben.Domain.Model
     /// <summary>
     ///  Audit info for the different Entities
     /// </summary>
-    [DataContract(IsReference = true)]
     public abstract class AuditInfoBase
     {
         /// <summary>
@@ -25,7 +24,6 @@ namespace Woben.Domain.Model
     /// <summary>
     ///  Audit info for the different Entities
     /// </summary>
-    [DataContract(IsReference = true)]
     public abstract class AuditInfoComplete : AuditInfoBase
     {
         /// <summary>

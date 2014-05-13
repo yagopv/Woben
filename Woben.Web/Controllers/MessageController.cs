@@ -16,16 +16,7 @@ using Woben.Data;
 
 namespace Woben.Web.Controllers
 {
-    /*
-    Para agregar una ruta para este controlador, combine estas instrucciones al método Register de la clase WebApiConfig. Tenga en cuenta que las direcciones URL de OData distinguen mayúsculas de minúsculas.
-
-    using System.Web.Http.OData.Builder;
-    using Woben.Domain.Model;
-    ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
-    builder.EntitySet<Message>("Message");
-    builder.EntitySet<Product>("Products"); 
-    config.Routes.MapODataRoute("odata", "odata", builder.GetEdmModel());
-    */
+    [Authorize(Roles = "Administrator")]
     public class MessageController : ODataController
     {
         private WobenDbContext db = new WobenDbContext();
@@ -47,6 +38,11 @@ namespace Woben.Web.Controllers
         // PUT odata/Message(5)
         public async Task<IHttpActionResult> Put([FromODataUri] int key, Message message)
         {
+
+            message.UpdatedDate = DateTime.UtcNow;
+            message.UpdatedBy = User.Identity.Name;
+
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -81,6 +77,11 @@ namespace Woben.Web.Controllers
         // POST odata/Message
         public async Task<IHttpActionResult> Post(Message message)
         {
+            message.CreatedDate = DateTime.UtcNow;
+            message.UpdatedDate = DateTime.UtcNow;
+            message.CreatedBy = User.Identity.Name;
+            message.UpdatedBy = User.Identity.Name;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -96,16 +97,21 @@ namespace Woben.Web.Controllers
         [AcceptVerbs("PATCH", "MERGE")]
         public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<Message> patch)
         {
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
             Message message = await db.Messages.FindAsync(key);
+
             if (message == null)
             {
                 return NotFound();
             }
+
+            message.UpdatedDate = DateTime.UtcNow;
+            message.UpdatedBy = User.Identity.Name;
 
             patch.Patch(message);
 
@@ -141,13 +147,6 @@ namespace Woben.Web.Controllers
             await db.SaveChangesAsync();
 
             return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // GET odata/Message(5)/Product
-        [Queryable]
-        public SingleResult<Product> GetProduct([FromODataUri] int key)
-        {
-            return SingleResult.Create(db.Messages.Where(m => m.MessageId == key).Select(m => m.Product));
         }
 
         protected override void Dispose(bool disposing)

@@ -86,7 +86,7 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Related Messages
         /// </summary>
-        public ICollection<Message> Messages { get; set; }
+        public ICollection<Notification> Notifications { get; set; }
 
         /// <summary>
         /// Create a url reference

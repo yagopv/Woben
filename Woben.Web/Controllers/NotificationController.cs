@@ -16,39 +16,43 @@ using Woben.Data;
 
 namespace Woben.Web.Controllers
 {
-    [Authorize(Roles="Administrator")]
-    public class FeatureController : ODataController
+    [Authorize(Roles = "Administrator")]
+    public class NotificationController : ODataController
     {
         private WobenDbContext db = new WobenDbContext();
 
-        // GET odata/Feature
+        // GET odata/Notification
         [Queryable]
-        public IQueryable<Feature> GetFeature()
+        public IQueryable<Notification> GetNotification()
         {
-            return db.Features;
+            return db.Notifications;
         }
 
-        // GET odata/Feature(5)
+        // GET odata/Notification(5)
         [Queryable]
-        public SingleResult<Feature> GetFeature([FromODataUri] int key)
+        public SingleResult<Notification> GetNotification([FromODataUri] int key)
         {
-            return SingleResult.Create(db.Features.Where(feature => feature.FeatureId == key));
+            return SingleResult.Create(db.Notifications.Where(notification => notification.MessageId == key));
         }
 
-        // PUT odata/Feature(5)
-        public async Task<IHttpActionResult> Put([FromODataUri] int key, Feature feature)
+        // PUT odata/Notification(5)
+        public async Task<IHttpActionResult> Put([FromODataUri] int key, Notification notification)
         {
+
+            notification.UpdatedDate = DateTime.UtcNow;
+            notification.UpdatedBy = User.Identity.Name;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (key != feature.FeatureId)
+            if (key != notification.MessageId)
             {
                 return BadRequest();
             }
 
-            db.Entry(feature).State = EntityState.Modified;
+            db.Entry(notification).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +60,7 @@ namespace Woben.Web.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!FeatureExists(key))
+                if (!NotificationExists(key))
                 {
                     return NotFound();
                 }
@@ -66,39 +70,48 @@ namespace Woben.Web.Controllers
                 }
             }
 
-            return Updated(feature);
+            return Updated(notification);
         }
 
-        // POST odata/Feature
-        public async Task<IHttpActionResult> Post(Feature feature)
+        // POST odata/Notification
+        public async Task<IHttpActionResult> Post(Notification notification)
         {
+
+            notification.CreatedDate = DateTime.UtcNow;
+            notification.UpdatedDate = DateTime.UtcNow;
+            notification.CreatedBy = User.Identity.Name;
+            notification.UpdatedBy = User.Identity.Name;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Features.Add(feature);
+            db.Notifications.Add(notification);
             await db.SaveChangesAsync();
 
-            return Created(feature);
+            return Created(notification);
         }
 
-        // PATCH odata/Feature(5)
+        // PATCH odata/Notification(5)
         [AcceptVerbs("PATCH", "MERGE")]
-        public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<Feature> patch)
+        public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<Notification> patch)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            Feature feature = await db.Features.FindAsync(key);
-            if (feature == null)
+            Notification notification = await db.Notifications.FindAsync(key);
+            if (notification == null)
             {
                 return NotFound();
             }
+            
+            notification.UpdatedDate = DateTime.UtcNow;
+            notification.UpdatedBy = User.Identity.Name;
 
-            patch.Patch(feature);
+            patch.Patch(notification);
 
             try
             {
@@ -106,7 +119,7 @@ namespace Woben.Web.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!FeatureExists(key))
+                if (!NotificationExists(key))
                 {
                     return NotFound();
                 }
@@ -116,29 +129,29 @@ namespace Woben.Web.Controllers
                 }
             }
 
-            return Updated(feature);
+            return Updated(notification);
         }
 
-        // DELETE odata/Feature(5)
+        // DELETE odata/Notification(5)
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
-            Feature feature = await db.Features.FindAsync(key);
-            if (feature == null)
+            Notification notification = await db.Notifications.FindAsync(key);
+            if (notification == null)
             {
                 return NotFound();
             }
 
-            db.Features.Remove(feature);
+            db.Notifications.Remove(notification);
             await db.SaveChangesAsync();
 
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // GET odata/Feature(5)/Product
+        // GET odata/Notification(5)/Product
         [Queryable]
         public SingleResult<Product> GetProduct([FromODataUri] int key)
         {
-            return SingleResult.Create(db.Features.Where(m => m.FeatureId == key).Select(m => m.Product));
+            return SingleResult.Create(db.Notifications.Where(m => m.MessageId == key).Select(m => m.Product));
         }
 
         protected override void Dispose(bool disposing)
@@ -150,9 +163,9 @@ namespace Woben.Web.Controllers
             base.Dispose(disposing);
         }
 
-        private bool FeatureExists(int key)
+        private bool NotificationExists(int key)
         {
-            return db.Features.Count(e => e.FeatureId == key) > 0;
+            return db.Notifications.Count(e => e.MessageId == key) > 0;
         }
     }
 }

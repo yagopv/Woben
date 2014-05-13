@@ -14,8 +14,6 @@ C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\bin\Debug\Microsoft.AspNet.Ident
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.csprojResolveAssemblyReference.cache
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.dll
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.pdb
-C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.Migrations.Initial.resources
-C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.csproj.GenerateResource.Cache
 C:\Users\T08062\Source\Repos\Woben\Woben.Data\obj\Debug\Woben.Data.csprojResolveAssemblyReference.cache
 C:\Users\T08062\Source\Repos\Woben\Woben.Data\obj\Debug\Woben.Data.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Data\obj\Debug\Woben.Data.pdb
@@ -34,3 +32,5 @@ C:\Users\T08062\Source\Repos\Woben\Woben.Data\bin\Debug\Microsoft.AspNet.Identit
 C:\Users\T08062\Source\Repos\Woben\Woben.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Data\obj\Debug\Woben.Data.Migrations.Initial.resources
 C:\Users\T08062\Source\Repos\Woben\Woben.Data\obj\Debug\Woben.Data.csproj.GenerateResource.Cache
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.Migrations.Initial.resources
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.csproj.GenerateResource.Cache

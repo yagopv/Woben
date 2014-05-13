@@ -23,6 +23,7 @@ namespace Woben.Web.Controllers
 
         // GET odata/Product
         [Queryable]
+        [Authorize(Roles = "User,Administrator")]
         public IQueryable<Product> GetProduct()
         {
             return db.Products;
@@ -30,6 +31,7 @@ namespace Woben.Web.Controllers
 
         // GET odata/Product(5)
         [Queryable]
+        [Authorize(Roles = "User,Administrator")]
         public SingleResult<Product> GetProduct([FromODataUri] int key)
         {
             return SingleResult.Create(db.Products.Where(product => product.ProductId == key));
@@ -153,6 +155,9 @@ namespace Woben.Web.Controllers
             {
                 return NotFound();
             }
+
+            product.UpdatedDate = DateTime.UtcNow;
+            product.UpdatedBy = User.Identity.Name;
 
             patch.Patch(product);
 
