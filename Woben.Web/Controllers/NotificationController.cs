@@ -11,8 +11,18 @@ using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using System.Web.Http.OData;
 using System.Web.Http.OData.Routing;
+using System.Web;
+
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.OAuth;
+
 using Woben.Domain.Model;
 using Woben.Data;
+using Woben.Web.Helpers;
+using Woben.Web.Models;
 
 namespace Woben.Web.Controllers
 {
@@ -20,6 +30,20 @@ namespace Woben.Web.Controllers
     public class NotificationController : ODataController
     {
         private WobenDbContext db = new WobenDbContext();
+
+        private ApplicationUserManager usermanager;
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return usermanager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                usermanager = value;
+            }
+        }
 
         // GET odata/Notification
         [Queryable]
@@ -89,6 +113,24 @@ namespace Woben.Web.Controllers
 
             db.Notifications.Add(notification);
             await db.SaveChangesAsync();
+
+            var product = await db.Products.FindAsync(notification.ProductId);
+
+            var message = new NotificationModel
+            {                  
+                 Title = notification.Title,
+                 Body = notification.Text,
+                 ProductName = product.Name
+            };
+
+            string body = ViewRenderer.RenderView("~/Views/Mailer/Notification.cshtml", message);
+
+            var adminUsers = UserManager.Users.Where(u => u.Roles.Any(r => r.RoleId == "Administrator"));
+
+            foreach (var user in adminUsers)
+            {
+                await UserManager.SendEmailAsync(user.Id, "Se ha recibido una nueva notificación acerca del producto '" + product.Name + "'", body);
+            }
 
             return Created(notification);
         }

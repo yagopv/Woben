@@ -384,6 +384,7 @@
     <Compile Include="Cloud\BlobInfo.cs" />
     <Compile Include="Helpers\WebAPIStreamResponseHelper.cs" />
     <Compile Include="Models\MessageModel.cs" />
+    <Compile Include="Models\NotificationModel.cs" />
     <Compile Include="Results\SitemapResult.cs" />
     <Compile Include="SEO\ISnapshot.cs" />
     <Compile Include="SEO\Snapshot.cs" />
@@ -407,6 +408,7 @@
     <Content Include="Views\Mailer\OneColumn_Layout.cshtml" />
     <Content Include="Scripts\jquery-2.1.0.min.map" />
     <Content Include="Views\Mailer\Message.cshtml" />
+    <Content Include="Views\Mailer\Notification.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

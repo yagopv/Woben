@@ -11,8 +11,18 @@ using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using System.Web.Http.OData;
 using System.Web.Http.OData.Routing;
+using System.Web;
+
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.OAuth;
+
 using Woben.Domain.Model;
 using Woben.Data;
+using Woben.Web.Helpers;
+using Woben.Web.Models;
 
 namespace Woben.Web.Controllers
 {
@@ -20,6 +30,20 @@ namespace Woben.Web.Controllers
     public class MessageController : ODataController
     {
         private WobenDbContext db = new WobenDbContext();
+
+        private ApplicationUserManager usermanager;
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return usermanager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                usermanager = value;
+            }
+        }
 
         // GET odata/Message
         [Queryable]
@@ -89,6 +113,21 @@ namespace Woben.Web.Controllers
 
             db.Messages.Add(message);
             await db.SaveChangesAsync();
+
+            var emailMessage = new MessageModel
+            {
+                Title = message.Title,
+                Body = message.Text
+            };
+
+            string body = ViewRenderer.RenderView("~/Views/Mailer/Notification.cshtml", emailMessage);
+
+            var adminUsers = UserManager.Users.Where(u => u.Roles.Any(r => r.RoleId == "Administrator"));
+
+            foreach (var user in adminUsers)
+            {
+                await UserManager.SendEmailAsync(user.Id, "Se ha recibido un nuevo mensaje", body);
+            }
 
             return Created(message);
         }
