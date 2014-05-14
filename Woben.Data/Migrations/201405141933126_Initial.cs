@@ -67,6 +67,7 @@ namespace Woben.Data.Migrations
                         MessageId = c.Int(nullable: false, identity: true),
                         Title = c.String(nullable: false, maxLength: 100),
                         Text = c.String(),
+                        PhoneNumber = c.String(maxLength: 20),
                         ProductId = c.Int(nullable: false),
                         CreatedDate = c.DateTime(nullable: false),
                         UpdatedDate = c.DateTime(nullable: false),
@@ -102,8 +103,11 @@ namespace Woben.Data.Migrations
                 c => new
                     {
                         MessageId = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 100),
+                        Email = c.String(nullable: false, maxLength: 200),
+                        PhoneNumber = c.String(maxLength: 20),
                         Title = c.String(nullable: false, maxLength: 100),
-                        Text = c.String(),
+                        Text = c.String(nullable: false),
                         CreatedDate = c.DateTime(nullable: false),
                         UpdatedDate = c.DateTime(nullable: false),
                         CreatedBy = c.String(maxLength: 100),
@@ -142,14 +146,14 @@ namespace Woben.Data.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(maxLength: 100),
-                        FirstName = c.String(maxLength: 100),
+                        Name = c.String(nullable: false, maxLength: 100),
+                        FirstName = c.String(nullable: false, maxLength: 100),
                         Lastname = c.String(maxLength: 100),
-                        PhoneNumber = c.String(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
                         SecurityStamp = c.String(),
+                        PhoneNumber = c.String(),
                         PhoneNumberConfirmed = c.Boolean(nullable: false),
                         TwoFactorEnabled = c.Boolean(nullable: false),
                         LockoutEndDateUtc = c.DateTime(),

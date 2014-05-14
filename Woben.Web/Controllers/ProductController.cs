@@ -16,14 +16,13 @@ using Woben.Data;
 
 namespace Woben.Web.Controllers
 {
-    [Authorize(Roles="Administrator")]
+    [Authorize]
     public class ProductController : ODataController
     {
         private WobenDbContext db = new WobenDbContext();
 
         // GET odata/Product
         [Queryable]
-        [Authorize(Roles = "User,Administrator")]
         public IQueryable<Product> GetProduct()
         {
             return db.Products;
@@ -31,13 +30,13 @@ namespace Woben.Web.Controllers
 
         // GET odata/Product(5)
         [Queryable]
-        [Authorize(Roles = "User,Administrator")]
         public SingleResult<Product> GetProduct([FromODataUri] int key)
         {
             return SingleResult.Create(db.Products.Where(product => product.ProductId == key));
         }
 
         // PUT odata/Product(5)
+        [Authorize(Roles = "Administrator")]
         public async Task<IHttpActionResult> Put([FromODataUri] int key, Product product)
         {
             product.UpdatedDate = DateTime.UtcNow;
@@ -122,6 +121,7 @@ namespace Woben.Web.Controllers
         }
 
         // POST odata/Product
+        [Authorize(Roles = "Administrator")]
         public async Task<IHttpActionResult> Post(Product product)
         {
             product.CreatedDate = DateTime.UtcNow;
@@ -143,6 +143,7 @@ namespace Woben.Web.Controllers
 
         // PATCH odata/Product(5)
         [AcceptVerbs("PATCH", "MERGE")]
+        [Authorize(Roles = "Administrator")]
         public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<Product> patch)
         {
             if (!ModelState.IsValid)
@@ -181,6 +182,7 @@ namespace Woben.Web.Controllers
         }
 
         // DELETE odata/Product(5)
+        [Authorize(Roles = "Administrator")]
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
             Product product = await db.Products.FindAsync(key);

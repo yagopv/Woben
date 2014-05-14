@@ -69,25 +69,24 @@ namespace Woben.Web.Controllers
 		[Route("UserInfo")]
 		public async Task<UserInfoViewModel> GetUserInfo()
 		{
-			ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
+			ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);		
 
-			ClaimsIdentity userIdentity = User.Identity as ClaimsIdentity;
+            var user = db.Users.Find(User.Identity.GetUserId());
 
-			// Get roles from the user claims
-			// We are setting the claims in the AuthenticationOAuthProvider properties
-			List<string> roles = new List<string>();
-			userIdentity.Claims.Where(c => c.Type == ClaimTypes.Role).ForEach(claim => roles.Add(claim.Value));
-			
-			//Check for Email confirmed
-			var emailConfirmed = externalLogin != null ? true : await UserManager.IsEmailConfirmedAsync(User.Identity.GetUserId());
-		   
+            var roles = await UserManager.GetRolesAsync(user.Id);
+
 			return new UserInfoViewModel
 			{
-				UserName = User.Identity.GetUserName(),
-				IsEmailConfirmed = emailConfirmed,
+				UserName = user.UserName,
+				IsEmailConfirmed = user.EmailConfirmed,
 				HasRegistered = externalLogin == null,
 				LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null,
-				Roles = roles
+				Roles = roles,
+                Name = user.Name,
+                FirstName = user.FirstName,
+                LastName = user.Lastname,
+                PhoneNumber = user.PhoneNumber,
+                Email = user.Email
 			};
 		}
 
@@ -555,7 +554,10 @@ namespace Woben.Web.Controllers
 			{
 				UserName = model.UserName,
 				Email = model.Email,
-				EmailConfirmed = false
+				EmailConfirmed = false,
+                FirstName = model.FirstName,
+                Lastname = model.Lastname,
+                Name = model.Name
 			};
 
 			IdentityResult identityResult = await UserManager.CreateAsync(user, model.Password);

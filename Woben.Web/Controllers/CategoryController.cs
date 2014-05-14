@@ -16,13 +16,14 @@ using Woben.Data;
 
 namespace Woben.Web.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     public class CategoryController : ODataController
     {
         private WobenDbContext db = new WobenDbContext();
 
         // GET odata/Category
         [Queryable]
+        [Authorize]
         public IQueryable<Category> GetCategory()
         {
             return db.Categories;
@@ -30,12 +31,14 @@ namespace Woben.Web.Controllers
 
         // GET odata/Category(5)
         [Queryable]
+        [Authorize]
         public SingleResult<Category> GetCategory([FromODataUri] int key)
         {
             return SingleResult.Create(db.Categories.Where(category => category.CategoryId == key));
         }
 
         // PUT odata/Category(5)
+        [Authorize(Roles="Administrator")]
         public async Task<IHttpActionResult> Put([FromODataUri] int key, Category category)
         {
             category.SetUrlReference();
@@ -72,6 +75,7 @@ namespace Woben.Web.Controllers
         }
 
         // POST odata/Category
+        [Authorize(Roles = "Administrator")]
         public async Task<IHttpActionResult> Post(Category category)
         {
             category.SetUrlReference();
@@ -89,6 +93,7 @@ namespace Woben.Web.Controllers
 
         // PATCH odata/Category(5)
         [AcceptVerbs("PATCH", "MERGE")]
+        [Authorize(Roles = "Administrator")]
         public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<Category> patch)
         {
             if (!ModelState.IsValid)
@@ -124,6 +129,7 @@ namespace Woben.Web.Controllers
         }
 
         // DELETE odata/Category(5)
+        [Authorize(Roles = "Administrator")]
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
             Category category = await db.Categories.FindAsync(key);

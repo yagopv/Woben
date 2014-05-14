@@ -26,7 +26,7 @@ using Woben.Web.Models;
 
 namespace Woben.Web.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     public class MessageController : ODataController
     {
         private WobenDbContext db = new WobenDbContext();

@@ -16,13 +16,13 @@ using Woben.Data;
 
 namespace Woben.Web.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     public class TagController : ODataController
     {
         private WobenDbContext db = new WobenDbContext();
 
         // GET odata/Tag
-        [Queryable]
+        [Queryable]        
         public IQueryable<Tag> GetTag()
         {
             return db.Tags;
@@ -36,6 +36,7 @@ namespace Woben.Web.Controllers
         }
 
         // PUT odata/Tag(5)
+        [Authorize(Roles = "Administrator")]
         public async Task<IHttpActionResult> Put([FromODataUri] int key, Tag tag)
         {
             if (!ModelState.IsValid)
@@ -70,6 +71,7 @@ namespace Woben.Web.Controllers
         }
 
         // POST odata/Tag
+        [Authorize(Roles = "Administrator")]
         public async Task<IHttpActionResult> Post(Tag tag)
         {
             if (!ModelState.IsValid)
@@ -85,6 +87,7 @@ namespace Woben.Web.Controllers
 
         // PATCH odata/Tag(5)
         [AcceptVerbs("PATCH", "MERGE")]
+        [Authorize(Roles = "Administrator")]
         public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<Tag> patch)
         {
             if (!ModelState.IsValid)
@@ -120,6 +123,7 @@ namespace Woben.Web.Controllers
         }
 
         // DELETE odata/Tag(5)
+        [Authorize(Roles = "Administrator")]
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
             Tag tag = await db.Tags.FindAsync(key);

@@ -25,4 +25,3 @@ C:\Users\T08062\Source\Repos\Woben\Woben.Domain\bin\Debug\EntityFramework.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Domain\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Yago\Documents\GitHub\Woben\Woben.Domain\obj\Debug\Woben.Domain.csprojResolveAssemblyReference.cache

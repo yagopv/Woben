@@ -26,7 +26,7 @@ using Woben.Web.Models;
 
 namespace Woben.Web.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     public class NotificationController : ODataController
     {
         private WobenDbContext db = new WobenDbContext();
@@ -112,8 +112,20 @@ namespace Woben.Web.Controllers
             }
 
             db.Notifications.Add(notification);
+
+            // Check is the user don´t have phone numbers
+            var user = db.Users.Find(User.Identity.GetUserId());
+
+            if (String.IsNullOrEmpty(user.PhoneNumber))
+            {
+                user.PhoneNumber = notification.PhoneNumber;
+                user.PhoneNumberConfirmed = true;
+            }
+
             await db.SaveChangesAsync();
 
+
+            // Send notifications to admin users
             var product = await db.Products.FindAsync(notification.ProductId);
 
             var message = new NotificationModel
@@ -127,9 +139,9 @@ namespace Woben.Web.Controllers
 
             var adminUsers = UserManager.Users.Where(u => u.Roles.Any(r => r.RoleId == "Administrator"));
 
-            foreach (var user in adminUsers)
+            foreach (var adminUser in adminUsers)
             {
-                await UserManager.SendEmailAsync(user.Id, "Se ha recibido una nueva notificación acerca del producto '" + product.Name + "'", body);
+                await UserManager.SendEmailAsync(adminUser.Id, "Se ha recibido una nueva notificación acerca del producto '" + product.Name + "'", body);
             }
 
             return Created(notification);

@@ -33,6 +33,17 @@ namespace Woben.Web.Models
         public string UserName { get; set; }
 
         [Required]
+        [StringLength(100)]
+        public string Name { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string FirstName { get; set; }
+
+        [StringLength(100)]
+        public string Lastname { get; set; }
+
+        [Required]
         [StringLength(100, ErrorMessage = "{0} characters should be greater or equal to {2}", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]

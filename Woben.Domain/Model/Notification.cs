@@ -32,6 +32,13 @@ namespace Woben.Domain.Model
         public string Text { get; set; }
 
         /// <summary>
+        /// Teléfono de contacto
+        /// </summary>
+        [StringLength(20)]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
+
+        /// <summary>
         /// Related product identity
         /// </summary>
         public int ProductId { get; set; }

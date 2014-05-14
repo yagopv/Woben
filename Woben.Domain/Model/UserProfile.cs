@@ -16,16 +16,15 @@ namespace Woben.Domain.Model
     /// </summary>
     public class UserProfile : IdentityUser
     {
+        [Required]
         [StringLength(100)]
         public string Name { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string FirstName { get; set; }
 
         [StringLength(100)]
         public string Lastname { get; set; }
-
-        [DataType(DataType.PhoneNumber)]
-        public string PhoneNumber { get; set; }
     }
 }
