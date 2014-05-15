@@ -42,13 +42,6 @@ namespace Woben.Domain.Model
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Message Title
-        /// </summary>
-        [Required]
-        [StringLength(100)]
-        public string Title { get; set; }
-
-        /// <summary>
         /// Message Body
         /// </summary>
         [Required]

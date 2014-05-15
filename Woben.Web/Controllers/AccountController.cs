@@ -481,7 +481,7 @@ namespace Woben.Web.Controllers
 				var justCreatedIdentity = await UserManager.FindByNameAsync(user.UserName);
 				var roles = await UserManager.GetRolesAsync(justCreatedIdentity.Id);
 
-				AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName, roles.ToArray(), true);
+				AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user, roles.ToArray());
 				Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);                
 			}
 			else

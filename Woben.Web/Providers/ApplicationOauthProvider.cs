@@ -104,7 +104,7 @@ namespace Woben.Web.Providers
                 var justCreatedIdentity = await userManager.FindByNameAsync(user.UserName);
                 var roles = await userManager.GetRolesAsync(justCreatedIdentity.Id);
 
-                AuthenticationProperties properties = CreateProperties(user.UserName, roles.ToArray(), user.EmailConfirmed);
+                AuthenticationProperties properties = CreateProperties(user, roles.ToArray());
                 AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
 
                 context.Validated(ticket);
@@ -169,13 +169,19 @@ namespace Woben.Web.Providers
         /// <param name="userName">The user name</param>
 		/// <param name="roles">The user roles</param>
         /// <returns>The properties</returns>
-        public static AuthenticationProperties CreateProperties(string userName,  string[] roles, bool emailConfirmed)
+        public static AuthenticationProperties CreateProperties(UserProfile user,  string[] roles)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "userName", userName },
+                { "userName", user.UserName },
                 { "roles", String.Join("," , roles) },
-                { "emailConfirmed", emailConfirmed.ToString().ToLower()}
+                { "isEmailConfirmed", user.EmailConfirmed.ToString().ToLower() },
+                { "name", user.Name },
+                { "firstName", user.FirstName },
+                { "lastName", user.Lastname },
+                { "phoneNumber", user.PhoneNumber != null ? user.PhoneNumber : ""  },
+                { "email", user.Email  }
+
             };
             return new AuthenticationProperties(data);
         }

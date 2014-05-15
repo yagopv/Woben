@@ -20,13 +20,6 @@ namespace Woben.Domain.Model
         public int MessageId { get; set; }
 
         /// <summary>
-        /// Notification Title
-        /// </summary>
-        [Required]
-        [StringLength(100)]
-        public string Title { get; set; }
-
-        /// <summary>
         /// Notification Body
         /// </summary>
         public string Text { get; set; }
@@ -37,6 +30,15 @@ namespace Woben.Domain.Model
         [StringLength(20)]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Best moment of the day to call 
+        ///  - I = That´s the same for me
+        ///  - M = Mornings
+        ///  - T = Afternoons
+        /// </summary>
+        [StringLength(1)]
+        public string BestTimeToCall { get; set; }
 
         /// <summary>
         /// Related product identity

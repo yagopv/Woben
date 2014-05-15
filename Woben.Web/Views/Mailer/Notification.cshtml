@@ -1,6 +1,6 @@
-﻿@model Woben.Web.Models.NotificationModel
+﻿@model Woben.Domain.Model.Notification
 @{
-    Layout = "OneColumn_Layout.cshtml";
+    Layout = "OneColumn_Layout.cshtml";        
 }
 
 <repeater>
@@ -9,17 +9,34 @@
             <tbody>
                 <tr>
                     <td class="w580" width="580">
-                        <p align="left" class="article-title"><singleline label="Title">Has recibido una notificacion acerca del producto @Model.ProductName</singleline></p>
+                        <p align="left" class="article-title"><singleline label="Title">Has recibido una nueva notificacion</singleline></p>
                         <div align="left" class="article-content">
                             <multiline label="Description">
-                                <h3>@Model.Title</h3>
-                                <br />
                                 <p style="font-size: 15px; color: #878787; line-height: 22px; font-weight: lighter; margin-bottom: 35px;">
-                                    @Model.Body
-                                </p>
+                                    @Model.Text
+                                </p>                                
+                                    @{
+                                        var bestTime = "";
+                                            
+                                        if (Model.BestTimeToCall == "M")
+                                        {
+                                            bestTime = "por las mañanas";
+                                        }
+                                        else if (Model.BestTimeToCall == "T")
+                                        {
+                                            bestTime = "por las tardes";
+                                        } else {
+                                            bestTime = "indiferente";
+                                        }
+                                    }
+                                <p>La mejor hora para llamar es @bestTime</p>
+                                <p>Mi teléfono es @Model.PhoneNumber</p>
                             </multiline>
                         </div>
                     </td>
+
+
+
                 </tr>
                 <tr><td class="w580" width="580" height="10"></td></tr>
             </tbody>

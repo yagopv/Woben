@@ -116,7 +116,7 @@ namespace Woben.Web.Controllers
             // Check is the user don´t have phone numbers
             var user = db.Users.Find(User.Identity.GetUserId());
 
-            if (String.IsNullOrEmpty(user.PhoneNumber))
+            if (!String.IsNullOrEmpty(user.PhoneNumber))
             {
                 user.PhoneNumber = notification.PhoneNumber;
                 user.PhoneNumberConfirmed = true;
@@ -128,18 +128,13 @@ namespace Woben.Web.Controllers
             // Send notifications to admin users
             var product = await db.Products.FindAsync(notification.ProductId);
 
-            var message = new NotificationModel
-            {                  
-                 Title = notification.Title,
-                 Body = notification.Text,
-                 ProductName = product.Name
-            };
+            string body = ViewRenderer.RenderView("~/Views/Mailer/Notification.cshtml", notification);
 
-            string body = ViewRenderer.RenderView("~/Views/Mailer/Notification.cshtml", message);
+            var role = await db.Roles.Where(r => r.Name == "Administrator").FirstAsync();
 
-            var adminUsers = UserManager.Users.Where(u => u.Roles.Any(r => r.RoleId == "Administrator"));
+            var adminUsers = UserManager.Users.Where(u => u.Roles.Any(r => r.RoleId == role.Id));
 
-            foreach (var adminUser in adminUsers)
+            foreach (var adminUser in adminUsers.ToList())
             {
                 await UserManager.SendEmailAsync(adminUser.Id, "Se ha recibido una nueva notificación acerca del producto '" + product.Name + "'", body);
             }

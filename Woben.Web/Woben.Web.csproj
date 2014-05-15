@@ -383,8 +383,6 @@
     <Compile Include="Helpers\ViewRenderer.cs" />
     <Compile Include="Cloud\BlobInfo.cs" />
     <Compile Include="Helpers\WebAPIStreamResponseHelper.cs" />
-    <Compile Include="Models\MessageModel.cs" />
-    <Compile Include="Models\NotificationModel.cs" />
     <Compile Include="Results\SitemapResult.cs" />
     <Compile Include="SEO\ISnapshot.cs" />
     <Compile Include="SEO\Snapshot.cs" />

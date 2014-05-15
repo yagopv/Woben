@@ -114,15 +114,11 @@ namespace Woben.Web.Controllers
             db.Messages.Add(message);
             await db.SaveChangesAsync();
 
-            var emailMessage = new MessageModel
-            {
-                Title = message.Title,
-                Body = message.Text
-            };
+            string body = ViewRenderer.RenderView("~/Views/Mailer/Notification.cshtml", message);
 
-            string body = ViewRenderer.RenderView("~/Views/Mailer/Notification.cshtml", emailMessage);
+            var role = await db.Roles.Where(r => r.Name == "Administrator").FirstAsync();
 
-            var adminUsers = UserManager.Users.Where(u => u.Roles.Any(r => r.RoleId == "Administrator"));
+            var adminUsers = UserManager.Users.Where(u => u.Roles.Any(r => r.RoleId == role.Id));
 
             foreach (var user in adminUsers)
             {

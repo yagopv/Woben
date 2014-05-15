@@ -65,9 +65,9 @@ namespace Woben.Data.Migrations
                 c => new
                     {
                         MessageId = c.Int(nullable: false, identity: true),
-                        Title = c.String(nullable: false, maxLength: 100),
                         Text = c.String(),
                         PhoneNumber = c.String(maxLength: 20),
+                        BestTimeToCall = c.String(maxLength: 1),
                         ProductId = c.Int(nullable: false),
                         CreatedDate = c.DateTime(nullable: false),
                         UpdatedDate = c.DateTime(nullable: false),
@@ -106,7 +106,6 @@ namespace Woben.Data.Migrations
                         Name = c.String(nullable: false, maxLength: 100),
                         Email = c.String(nullable: false, maxLength: 200),
                         PhoneNumber = c.String(maxLength: 20),
-                        Title = c.String(nullable: false, maxLength: 100),
                         Text = c.String(nullable: false),
                         CreatedDate = c.DateTime(nullable: false),
                         UpdatedDate = c.DateTime(nullable: false),
