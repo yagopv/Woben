@@ -30,7 +30,7 @@ C:\Users\T08062\Source\Repos\Woben\Woben.Data\bin\Debug\EntityFramework.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Data\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\T08062\Source\Repos\Woben\Woben.Data\obj\Debug\Woben.Data.Migrations.Initial.resources
-C:\Users\T08062\Source\Repos\Woben\Woben.Data\obj\Debug\Woben.Data.csproj.GenerateResource.Cache
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.Migrations.Initial.resources
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Data\obj\Debug\Woben.Data.csproj.GenerateResource.Cache
+C:\Users\T08062\Source\Repos\Woben\Woben.Data\obj\Debug\Woben.Data.Migrations.Initial.resources
+C:\Users\T08062\Source\Repos\Woben\Woben.Data\obj\Debug\Woben.Data.csproj.GenerateResource.Cache

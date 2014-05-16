@@ -59,9 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201405151914591_Initial.cs" />
-    <Compile Include="Migrations\201405151914591_Initial.Designer.cs">
-      <DependentUpon>201405151914591_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201405161154450_Initial.cs" />
+    <Compile Include="Migrations\201405161154450_Initial.Designer.cs">
+      <DependentUpon>201405161154450_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="WobenDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -78,8 +78,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201405151914591_Initial.resx">
-      <DependentUpon>201405151914591_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201405161154450_Initial.resx">
+      <DependentUpon>201405161154450_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
