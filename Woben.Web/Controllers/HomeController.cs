@@ -14,9 +14,9 @@ namespace Woben.Web.Controllers
     {
         ISnapshot Snapshot;
 
-        public HomeController(ISnapshot snapshot)
+        public HomeController()
         {
-            this.Snapshot = snapshot;
+            this.Snapshot = new Snapshot();
         }
 
         /// <summary>
