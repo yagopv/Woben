@@ -114,7 +114,7 @@ namespace Woben.Web.Controllers
             db.Messages.Add(message);
             await db.SaveChangesAsync();
 
-            string body = ViewRenderer.RenderView("~/Views/Mailer/Notification.cshtml", message);
+            string body = ViewRenderer.RenderView("~/Views/Mailer/Message.cshtml", message);
 
             var role = await db.Roles.Where(r => r.Name == "Administrator").FirstAsync();
 
