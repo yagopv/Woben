@@ -55,7 +55,7 @@ namespace Woben.Web.Controllers
 		/// <summary>
 		/// ctor
 		/// </summary>
-		public AccountController(ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+		public AccountController()
 		{
             this.AccessTokenFormat = Startup.OAuthOptions.AccessTokenFormat;
 		}
