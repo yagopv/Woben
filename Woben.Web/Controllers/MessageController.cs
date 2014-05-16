@@ -26,7 +26,7 @@ using Woben.Web.Models;
 
 namespace Woben.Web.Controllers
 {
-    [Authorize]
+    [Authorize(Roles="Administrator")]
     public class MessageController : ODataController
     {
         private WobenDbContext db = new WobenDbContext();
@@ -99,6 +99,7 @@ namespace Woben.Web.Controllers
         }
 
         // POST odata/Message
+        [AllowAnonymous]
         public async Task<IHttpActionResult> Post(Message message)
         {
             message.CreatedDate = DateTime.UtcNow;
@@ -120,9 +121,9 @@ namespace Woben.Web.Controllers
 
             var adminUsers = UserManager.Users.Where(u => u.Roles.Any(r => r.RoleId == role.Id));
 
-            foreach (var user in adminUsers)
+            foreach (var adminUser in adminUsers.ToList())
             {
-                await UserManager.SendEmailAsync(user.Id, "Se ha recibido un nuevo mensaje", body);
+                await UserManager.SendEmailAsync(adminUser.Id, "Se ha recibido un nuevo mensaje", body);
             }
 
             return Created(message);

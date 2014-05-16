@@ -10,13 +10,12 @@
             <tbody>
                 <tr>
                     <td class="w580" width="580">
-                        <p align="left" class="article-title"><singleline label="Title">Has recibido un nuevo mensaje</singleline></p>
+                        <p align="left" class="article-title"><singleline label="Title">Has recibido un nuevo mensaje de @Model.Name</singleline></p>
                         <div align="left" class="article-content">
-                            <multiline label="Description">
-                                <h3>@Model.Title</h3>
-                                <br />
+                            <multiline label="Description">                                
+                                <p>Teléfono : @Model.PhoneNumber</p>
                                 <p style="font-size: 15px; color: #878787; line-height: 22px; font-weight: lighter; margin-bottom: 35px;">
-                                    @Model.Body
+                                    @Model.Text
                                 </p>
                             </multiline>
                         </div>
