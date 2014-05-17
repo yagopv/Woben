@@ -56,7 +56,7 @@ namespace Woben.Web.Controllers
         [Queryable]
         public SingleResult<Notification> GetNotification([FromODataUri] int key)
         {
-            return SingleResult.Create(db.Notifications.Where(notification => notification.MessageId == key));
+            return SingleResult.Create(db.Notifications.Where(notification => notification.NotificationId == key));
         }
 
         // PUT odata/Notification(5)
@@ -71,7 +71,7 @@ namespace Woben.Web.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (key != notification.MessageId)
+            if (key != notification.NotificationId)
             {
                 return BadRequest();
             }
@@ -200,7 +200,7 @@ namespace Woben.Web.Controllers
         [Queryable]
         public SingleResult<Product> GetProduct([FromODataUri] int key)
         {
-            return SingleResult.Create(db.Notifications.Where(m => m.MessageId == key).Select(m => m.Product));
+            return SingleResult.Create(db.Notifications.Where(m => m.NotificationId == key).Select(m => m.Product));
         }
 
         protected override void Dispose(bool disposing)
@@ -214,7 +214,7 @@ namespace Woben.Web.Controllers
 
         private bool NotificationExists(int key)
         {
-            return db.Notifications.Count(e => e.MessageId == key) > 0;
+            return db.Notifications.Count(e => e.NotificationId == key) > 0;
         }
     }
 }

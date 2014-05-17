@@ -17,7 +17,7 @@ namespace Woben.Domain.Model
         /// Entity identity
         /// </summary>
         [Key]
-        public int MessageId { get; set; }
+        public int NotificationId { get; set; }
 
         /// <summary>
         /// Notification Body
