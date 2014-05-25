@@ -7,6 +7,8 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
+using Woben.Domain.Resources;
+
 namespace Woben.Domain.Model
 {
     /// <summary>
@@ -23,7 +25,7 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Title of this product
         /// </summary>
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "Required")]
         [StringLength(200)]
         public string Name { get; set; }
 
