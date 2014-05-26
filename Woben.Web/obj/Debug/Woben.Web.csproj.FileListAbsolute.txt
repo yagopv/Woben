@@ -272,3 +272,5 @@ C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\obj\Debug\Woben.Web.pdb
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\obj\Debug\Woben.Web.Resources.WebResources.resources
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\obj\Debug\Woben.Web.csproj.GenerateResource.Cache
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\obj\Debug\Woben.Web.Resources.WebResources.resources
+C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\obj\Debug\Woben.Web.csproj.GenerateResource.Cache

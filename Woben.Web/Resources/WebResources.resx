@@ -138,6 +138,42 @@
   <data name="InvalidUser" xml:space="preserve">
     <value>No hay ningún usuario registrado en Woben con el nombre indicado</value>
   </data>
+  <data name="MailerAbout" xml:space="preserve">
+    <value>Acerca de</value>
+  </data>
+  <data name="MailerAboutUrl" xml:space="preserve">
+    <value>http://woben-web-dev.azurewebsites.net/about</value>
+  </data>
+  <data name="MailerContact" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="MailerContactUrl" xml:space="preserve">
+    <value>http://woben-web-dev.azurewebsites.net/contact</value>
+  </data>
+  <data name="MailerHome" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="MailerHomeUrl" xml:space="preserve">
+    <value>http://woben-web-dev.azurewebsites.net</value>
+  </data>
+  <data name="MailerMessageDescription" xml:space="preserve">
+    <value>El usuario {0} te ha enviado un nuevo mensaje</value>
+  </data>
+  <data name="MailerMessageGoTo" xml:space="preserve">
+    <value>Ir a mensajes</value>
+  </data>
+  <data name="MailerMessageMessageReceived" xml:space="preserve">
+    <value>Has recibido el siguiente mensaje</value>
+  </data>
+  <data name="MailerMessageTitle" xml:space="preserve">
+    <value>Has recibido un nuevo mensaje</value>
+  </data>
+  <data name="MailerMessageUrl" xml:space="preserve">
+    <value>http://woben-web-dev.azurewebsites.net/dashboard/mesages</value>
+  </data>
+  <data name="MailerTitle" xml:space="preserve">
+    <value>Woben, ventajas para empleados</value>
+  </data>
   <data name="Minutes" xml:space="preserve">
     <value>minute(s)</value>
   </data>
