@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-
 using Woben.Domain.Resources;
 
 namespace Woben.Domain.Model
@@ -25,26 +25,28 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Title of this product
         /// </summary>
+        [Display(ResourceType=typeof(ModelValidation), Name="Name")]
         [Required(ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "Required")]
-        [StringLength(200)]
+        [StringLength(200, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
         public string Name { get; set; }
 
         /// <summary>
         /// The title accesible by url
         /// </summary>
-        [StringLength(200)]
+        [StringLength(200, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
         public string UrlCodeReference { get; set; }
 
         /// <summary>
         /// Description for this product
         /// </summary>
-        [StringLength(500)]
+        [Display(ResourceType=typeof(ModelValidation), Name="Description")]
+        [StringLength(500, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength"))]
         public string Description { get; set; }
 
         /// <summary>
         /// Url for the image representing the post
         /// </summary>
-        [StringLength(500)]
+        [StringLength(500, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength"))]
         [DataType(DataType.ImageUrl)]
         public string ImageUrl { get; set; }
 
