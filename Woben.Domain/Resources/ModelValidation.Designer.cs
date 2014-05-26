@@ -70,7 +70,7 @@ namespace Woben.Domain.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a La logitud de {0} no puede ser mayor de {1}.
+        ///   Busca una cadena traducida similar a La longitud del campo {0} no puede ser mayor de {1}.
         /// </summary>
         internal static string MaxLength {
             get {
@@ -79,7 +79,7 @@ namespace Woben.Domain.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a La longitud de {0} tiene que se mayor de {1}.
+        ///   Busca una cadena traducida similar a La longitud del campo {0} tiene que se mayor de {1}.
         /// </summary>
         internal static string MinLength {
             get {

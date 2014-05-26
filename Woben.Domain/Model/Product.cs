@@ -40,13 +40,13 @@ namespace Woben.Domain.Model
         /// Description for this product
         /// </summary>
         [Display(ResourceType=typeof(ModelValidation), Name="Description")]
-        [StringLength(500, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength"))]
+        [StringLength(500, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
         public string Description { get; set; }
 
         /// <summary>
         /// Url for the image representing the post
         /// </summary>
-        [StringLength(500, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength"))]
+        [StringLength(500, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
         [DataType(DataType.ImageUrl)]
         public string ImageUrl { get; set; }
 
