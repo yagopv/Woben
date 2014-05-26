@@ -24,13 +24,11 @@ C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.Owin.Security.Google.
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.Owin.Security.OAuth.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.Practices.ServiceLocation.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.WindowsAzure.Configuration.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.WindowsAzure.Storage.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Newtonsoft.Json.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Owin.dll
-C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\StructureMap.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\System.Net.Http.Formatting.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\System.Spatial.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\System.Web.Cors.dll
@@ -45,7 +43,6 @@ C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\System.Web.Razor.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\System.Web.WebPages.Deployment.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\System.Web.WebPages.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\System.Web.WebPages.Razor.dll
-C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\WebActivator.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\WebGrease.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Woben.Data.dll
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Woben.Domain.dll
@@ -74,13 +71,9 @@ C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.Owin.Security.Google.
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.Practices.ServiceLocation.pdb
-C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.Practices.ServiceLocation.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.WindowsAzure.Configuration.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.WindowsAzure.Storage.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Newtonsoft.Json.xml
-C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\StructureMap.pdb
-C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\StructureMap.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\System.Net.Http.Formatting.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\System.Spatial.xml
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\System.Web.Helpers.xml
@@ -276,3 +269,4 @@ C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\bin\es\System.Web.WebPages.Deploy
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\bin\es\System.Web.WebPages.Razor.resources.dll
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\obj\Debug\Woben.Web.dll
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\obj\Debug\Woben.Web.pdb
+C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
