@@ -7,6 +7,8 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
+using Woben.Domain.Resources;
+
 namespace Woben.Domain.Model
 {
     /// <summary>
@@ -24,8 +26,9 @@ namespace Woben.Domain.Model
         /// Tag Name
         /// </summary>
         [Index]
-        [Required]
-        [StringLength(100)]
+        [Display(ResourceType = typeof(ModelValidation), Name = "Name")]
+        [Required(ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "Required")]
+        [StringLength(100, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
         public string Name { get; set; }
 
         /// <summary>

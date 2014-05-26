@@ -7,6 +7,8 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
+using Woben.Domain.Resources;
+
 namespace Woben.Domain.Model
 {
     /// <summary>
@@ -24,21 +26,23 @@ namespace Woben.Domain.Model
         /// Category Name
         /// </summary>
         [Index(IsUnique=true)]
-        [Required]
-        [StringLength(100)]        
+        [Display(ResourceType = typeof(ModelValidation), Name = "Name")]
+        [Required(ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "Required")]
+        [StringLength(100, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
         public string Name { get; set; }
 
         /// <summary>
         /// Category description
         /// </summary>
-        [StringLength(1000)]        
+        [Display(ResourceType=typeof(ModelValidation), Name="Description")]
+        [StringLength(1000, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
         public string Description { get; set; }
 
         /// <summary>
         /// The category name accesible by url
         /// </summary>
         [Index(IsUnique=true)]
-        [StringLength(100)]
+        [StringLength(100, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
         public string UrlCodeReference { get; set; }
 
         /// <summary>

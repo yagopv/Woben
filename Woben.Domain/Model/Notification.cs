@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Woben.Domain.Resources;
+
 namespace Woben.Domain.Model
 {
     /// <summary>
@@ -27,8 +29,8 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Teléfono de contacto
         /// </summary>
-        [StringLength(20)]
-        [DataType(DataType.PhoneNumber)]
+        [StringLength(20, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
+        [DataType(DataType.PhoneNumber, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "PhoneNumber")]
         public string PhoneNumber { get; set; }
 
         /// <summary>
@@ -37,7 +39,7 @@ namespace Woben.Domain.Model
         ///  - M = Mornings
         ///  - T = Afternoons
         /// </summary>
-        [StringLength(1)]
+        [StringLength(1, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
         public string BestTimeToCall { get; set; }
 
         /// <summary>

@@ -7,6 +7,8 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
+using Woben.Domain.Resources;
+
 namespace Woben.Domain.Model
 {
     /// <summary>
@@ -23,14 +25,14 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Feature Name
         /// </summary>
-        [Required]
-        [StringLength(100)]        
+        [Required(ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "Required")]
+        [StringLength(100, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
         public string Name { get; set; }
 
         /// <summary>
         /// Feature Description
         /// </summary>
-        [StringLength(500)]
+        [StringLength(500, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
         public string Description { get; set; }
 
         /// <summary>

@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 
 using Microsoft.AspNet.Identity.EntityFramework;
+using Woben.Domain.Resources;
 
 namespace Woben.Domain.Model
 {
@@ -16,15 +17,15 @@ namespace Woben.Domain.Model
     /// </summary>
     public class UserProfile : IdentityUser
     {
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "Required")]
+        [StringLength(100, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
         public string Name { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "Required")]
+        [StringLength(100, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
         public string FirstName { get; set; }
 
-        [StringLength(100)]
+        [StringLength(100, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
         public string Lastname { get; set; }
     }
 }
