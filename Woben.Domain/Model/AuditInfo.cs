@@ -52,7 +52,6 @@ namespace Woben.Domain.Model
         /// User updating the entity
         /// </summary>
         [Index(IsUnique = false)]
-        [Display(ResourceType = typeof(DomainResources), Name = "UpdatedBy")]
         [StringLength(100, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
         public string UpdatedBy { get; set; }
     }
