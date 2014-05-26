@@ -270,3 +270,4 @@ C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\bin\es\System.Web.WebPages.Razor.
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\obj\Debug\Woben.Web.dll
 C:\Users\Yago\Documents\GitHub\Woben\Woben.Web\obj\Debug\Woben.Web.pdb
 C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\T08062\Source\Repos\Woben\Woben.Web\bin\en\Woben.Domain.resources.dll
