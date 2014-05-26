@@ -25,14 +25,14 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Feature Name
         /// </summary>
-        [Required(ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "Required")]
-        [StringLength(100, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
+        [Required(ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "Required")]
+        [StringLength(100, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
         public string Name { get; set; }
 
         /// <summary>
         /// Feature Description
         /// </summary>
-        [StringLength(500, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
+        [StringLength(500, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
         public string Description { get; set; }
 
         /// <summary>

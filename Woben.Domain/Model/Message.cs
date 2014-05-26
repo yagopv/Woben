@@ -24,30 +24,30 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Message User Name
         /// </summary>
-        [Required(ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "Required")]
-        [StringLength(100, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
+        [Required(ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "Required")]
+        [StringLength(100, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
         public string Name { get; set; }
 
         /// <summary>
         /// Message User Email
         /// </summary>
-        [Required(ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "Required")]
-        [StringLength(200, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
-        [DataType(DataType.EmailAddress, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "Email")]
+        [Required(ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "Required")]
+        [StringLength(200, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
+        [DataType(DataType.EmailAddress, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "Email")]
         public string Email { get; set; }
 
         /// <summary>
         /// Teléfono de contacto
         /// </summary>
-        [StringLength(20, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
-        [DataType(DataType.PhoneNumber,ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "PhoneNumber")]
+        [StringLength(20, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
+        [DataType(DataType.PhoneNumber, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "PhoneNumber")]
         public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Message Body
         /// </summary>
-        [Required(ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "Required")]
-        [MinLength(5, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MinLength")]
+        [Required(ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "Required")]
+        [MinLength(5, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MinLength")]
         public string Text { get; set; }
     }
 }

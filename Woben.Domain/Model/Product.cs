@@ -25,28 +25,28 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Title of this product
         /// </summary>
-        [Display(ResourceType=typeof(ModelValidation), Name="Name")]
-        [Required(ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "Required")]
-        [StringLength(200, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
+        [Display(ResourceType = typeof(DomainResources), Name = "Name")]
+        [Required(ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "Required")]
+        [StringLength(200, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
         public string Name { get; set; }
 
         /// <summary>
         /// The title accesible by url
         /// </summary>
-        [StringLength(200, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
+        [StringLength(200, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
         public string UrlCodeReference { get; set; }
 
         /// <summary>
         /// Description for this product
         /// </summary>
-        [Display(ResourceType=typeof(ModelValidation), Name="Description")]
-        [StringLength(500, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
+        [Display(ResourceType = typeof(DomainResources), Name = "Description")]
+        [StringLength(500, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
         public string Description { get; set; }
 
         /// <summary>
         /// Url for the image representing the post
         /// </summary>
-        [StringLength(500, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
+        [StringLength(500, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
         [DataType(DataType.ImageUrl)]
         public string ImageUrl { get; set; }
 

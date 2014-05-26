@@ -22,6 +22,7 @@ using Woben.Domain.Model;
 using Woben.Web.Helpers;
 using Woben.Data;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Woben.Web.Resources;
 
 namespace Woben.Web.Controllers
 {
@@ -97,7 +98,7 @@ namespace Woben.Web.Controllers
 		{
 			if (userId == null || code == null)
 			{
-				ModelState.AddModelError("error", "You need to provide your user id and confirmation code");
+				ModelState.AddModelError("error", WebResources.InvalidCode);
 				return BadRequest(ModelState);
 			}
 
@@ -130,7 +131,7 @@ namespace Woben.Web.Controllers
 			};
 
 			string body = ViewRenderer.RenderView("~/Views/Mailer/NewAccount.cshtml", notification);
-			await UserManager.SendEmailAsync(user.Id, "Woben account confirmation", body);
+			await UserManager.SendEmailAsync(user.Id, WebResources.WobenAccountConfimation, body);
 			
 			return Ok();
 		}
@@ -178,7 +179,7 @@ namespace Woben.Web.Controllers
 				var user = await UserManager.FindByEmailAsync(model.Email);
 				if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
 				{
-					ModelState.AddModelError("", "The user either does not exist or is not confirmed.");
+					ModelState.AddModelError("", WebResources.UserNotExist);
 					return BadRequest(ModelState);
 				}
 
@@ -193,7 +194,7 @@ namespace Woben.Web.Controllers
 				};
 
 				string body = ViewRenderer.RenderView("~/Views/Mailer/PasswordReset.cshtml", notification);
-				await UserManager.SendEmailAsync(user.Id, "Woben reset password", body);
+				await UserManager.SendEmailAsync(user.Id, WebResources.WobenResetPassword, body);
 				
 				return Ok();
 			}
@@ -217,7 +218,7 @@ namespace Woben.Web.Controllers
 				var user = await UserManager.FindByEmailAsync(model.Email);
 				if (user == null)
 				{
-					ModelState.AddModelError("", "No user found.");
+					ModelState.AddModelError("", WebResources.NoUserFound);
 					return BadRequest(ModelState);
 				}
 				IdentityResult result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
@@ -371,14 +372,14 @@ namespace Woben.Web.Controllers
 				&& ticket.Properties.ExpiresUtc.HasValue
 				&& ticket.Properties.ExpiresUtc.Value < DateTimeOffset.UtcNow))
 			{
-				return BadRequest("Failed to login to the external provider.");
+				return BadRequest(WebResources.ExternalLoginError);
 			}
 
 			ExternalLoginData externalData = ExternalLoginData.FromIdentity(ticket.Identity);
 
 			if (externalData == null)
 			{
-				return BadRequest("This external login is already associated with an account.");
+				return BadRequest(WebResources.ExternalLoginAlreadyLinked);
 			}
 
 			IdentityResult result = await UserManager.AddLoginAsync(User.Identity.GetUserId(),
@@ -593,7 +594,7 @@ namespace Woben.Web.Controllers
 			};
 
 			string body = ViewRenderer.RenderView("~/Views/Mailer/NewAccount.cshtml", notification);
-			await UserManager.SendEmailAsync(user.Id, "Woben account confirmation", body);
+            await UserManager.SendEmailAsync(user.Id, WebResources.WobenAccountConfirmation, body);
 
 			return Ok();
 		}

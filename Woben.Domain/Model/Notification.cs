@@ -29,8 +29,8 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Teléfono de contacto
         /// </summary>
-        [StringLength(20, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
-        [DataType(DataType.PhoneNumber, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "PhoneNumber")]
+        [StringLength(20, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
+        [DataType(DataType.PhoneNumber, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "PhoneNumber")]
         public string PhoneNumber { get; set; }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Woben.Domain.Model
         ///  - M = Mornings
         ///  - T = Afternoons
         /// </summary>
-        [StringLength(1, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
+        [StringLength(1, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
         public string BestTimeToCall { get; set; }
 
         /// <summary>

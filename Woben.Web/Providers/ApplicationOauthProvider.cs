@@ -11,6 +11,7 @@ using Microsoft.Owin.Security.OAuth;
 
 using Woben.Domain.Model;
 using Woben.Web.Helpers;
+using Woben.Web.Resources;
 
 namespace Woben.Web.Providers
 {
@@ -62,7 +63,7 @@ namespace Woben.Web.Providers
 
                 if (user == null)
                 {
-                    context.SetError("invalid_grant", "Invalid username");
+                    context.SetError("invalid_grant", WebResources.InvalidUser);
                     return;
                 }
 
@@ -70,10 +71,10 @@ namespace Woben.Web.Providers
                 {
                     var timeleft = user.LockoutEndDateUtc.GetValueOrDefault().Subtract(DateTime.UtcNow);
 
-                    var timetype = timeleft.Minutes == 0 ? "seconds" : "minute(s)";
+                    var timetype = timeleft.Minutes == 0 ? WebResources.Seconds : WebResources.Minutes;
                     var timevalue = timeleft.Minutes == 0 ? timeleft.Seconds : timeleft.Minutes;
 
-                    context.SetError("invalid_grant", string.Format("Your account is locked for {0} more {1}", timevalue, timetype));
+                    context.SetError("invalid_grant", string.Format(WebResources.AccountLocked, timevalue, timetype));
                     return;
                 }
 
@@ -83,14 +84,14 @@ namespace Woben.Web.Providers
 
                     if (await userManager.IsLockedOutAsync(user.Id))
                     {
-                        context.SetError("invalid_grant", string.Format("Your account has been locked for {0} minutes", userManager.DefaultAccountLockoutTimeSpan.Minutes));
+                        context.SetError("invalid_grant", string.Format(WebResources.AccountLockedForMinutes, userManager.DefaultAccountLockoutTimeSpan.Minutes));
                         return;
                     }
 
                     var possibleAttempts = userManager.MaxFailedAccessAttemptsBeforeLockout;
                     var currentcount = await userManager.GetAccessFailedCountAsync(user.Id);
                     
-                    context.SetError("invalid_grant", string.Format("Invalid password. Your account will be locked after {0} more failed attempts.", possibleAttempts - currentcount));
+                    context.SetError("invalid_grant", string.Format(WebResources.InvalidPassword, possibleAttempts - currentcount));
                     return;
                 }
 

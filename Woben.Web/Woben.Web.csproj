@@ -371,6 +371,11 @@
     <Compile Include="Helpers\ViewRenderer.cs" />
     <Compile Include="Cloud\BlobInfo.cs" />
     <Compile Include="Helpers\WebAPIStreamResponseHelper.cs" />
+    <Compile Include="Resources\WebResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Results\SitemapResult.cs" />
     <Compile Include="SEO\ISnapshot.cs" />
     <Compile Include="SEO\Snapshot.cs" />
@@ -415,6 +420,12 @@
       <Project>{0A4BF6AD-F505-4C97-89EA-EE0DB3BF7031}</Project>
       <Name>Woben.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WebResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WebResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

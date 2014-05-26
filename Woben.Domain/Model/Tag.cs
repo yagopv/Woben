@@ -26,9 +26,9 @@ namespace Woben.Domain.Model
         /// Tag Name
         /// </summary>
         [Index]
-        [Display(ResourceType = typeof(ModelValidation), Name = "Name")]
-        [Required(ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "Required")]
-        [StringLength(100, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
+        [Display(ResourceType = typeof(DomainResources), Name = "Name")]
+        [Required(ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "Required")]
+        [StringLength(100, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
         public string Name { get; set; }
 
         /// <summary>

@@ -31,29 +31,29 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Date the entity was created
         /// </summary>
-        [Display(ResourceType = typeof(ModelValidation), Name = "CreatedDate")]
-        [DataType(DataType.DateTime, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "InvalidDate")]
+        [Display(ResourceType = typeof(DomainResources), Name = "CreatedDate")]
+        [DataType(DataType.DateTime, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "InvalidDate")]
         public DateTime CreatedDate { get; set; }
 
         /// <summary>
         /// Date the entity was updated
         /// </summary>
-        [DataType(DataType.DateTime, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "InvalidDate")]
+        [DataType(DataType.DateTime, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "InvalidDate")]
         public DateTime UpdatedDate { get; set; }
 
         /// <summary>
         ///  User creating the entity
         /// </summary>
         [Index(IsUnique = false)]
-        [StringLength(100, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]        
+        [StringLength(100, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]        
         public string CreatedBy { get; set; }
 
         /// <summary>
         /// User updating the entity
         /// </summary>
         [Index(IsUnique = false)]
-        [Display(ResourceType = typeof(ModelValidation), Name = "UpdatedBy")]
-        [StringLength(100, ErrorMessageResourceType = typeof(ModelValidation), ErrorMessageResourceName = "MaxLength")]
+        [Display(ResourceType = typeof(DomainResources), Name = "UpdatedBy")]
+        [StringLength(100, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
         public string UpdatedBy { get; set; }
     }
 }
