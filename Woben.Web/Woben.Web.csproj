@@ -365,14 +365,12 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Views\Mailer\NewAccount.cshtml" />
-    <Content Include="Views\Mailer\PasswordReset.cshtml" />
     <Content Include="Views\Mailer\OneColumn_Layout.cshtml" />
     <Content Include="Views\Mailer\EmailLayout.cshtml" />
     <Content Include="Views\Mailer\Message.cshtml" />
-    <Content Include="Views\Mailer\NewAccount2.cshtml" />
+    <Content Include="Views\Mailer\NewAccount.cshtml" />
     <Content Include="Views\Mailer\Notification.cshtml" />
-    <Content Include="Views\Mailer\PasswordReset2.cshtml" />
+    <Content Include="Views\Mailer\PasswordReset.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -259,7 +259,7 @@ namespace Woben.Web.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El usuario anónimo {0} ha escrito lo siguiente.
+        ///   Busca una cadena traducida similar a El usuario @{0} ha escrito lo siguiente.
         /// </summary>
         public static string MailerMessageMessageReceived {
             get {
@@ -286,11 +286,92 @@ namespace Woben.Web.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Hola @{0}, el último paso para registrarse en Woben es que verifiques tu direccion de mail. Pulsa el siguiente botón para finalizar.
+        /// </summary>
+        public static string MailerNewAccountDescription {
+            get {
+                return ResourceManager.GetString("MailerNewAccountDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Confirma tu cuenta.
+        /// </summary>
+        public static string MailerNewAccountLink {
+            get {
+                return ResourceManager.GetString("MailerNewAccountLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a A punto de finalizar ....
+        /// </summary>
+        public static string MailerNewAccountTitle {
+            get {
+                return ResourceManager.GetString("MailerNewAccountTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Has recibido una nueva notificación acerca de un producto.
+        /// </summary>
+        public static string MailerNotificationDescription {
+            get {
+                return ResourceManager.GetString("MailerNotificationDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a http://woben-web-dev.azurewebsites.net/dashboard/notifications.
         /// </summary>
         public static string MailerNotificationUrl {
             get {
                 return ResourceManager.GetString("MailerNotificationUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Hola @{0}, pulsando en el siguiente botón te llevaremos a la página donde podrás modificar tu password.
+        /// </summary>
+        public static string MailerPasswordResetDescription {
+            get {
+                return ResourceManager.GetString("MailerPasswordResetDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modifica tu password.
+        /// </summary>
+        public static string MailerPasswordResetLink {
+            get {
+                return ResourceManager.GetString("MailerPasswordResetLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a A punto de modificar tu password ....
+        /// </summary>
+        public static string MailerPasswordResetTitle {
+            get {
+                return ResourceManager.GetString("MailerPasswordResetTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nuestra dirección de mail es admin@woben.com.
+        /// </summary>
+        public static string MailerReasonAddress {
+            get {
+                return ResourceManager.GetString("MailerReasonAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Estas recibiendo este mail poque has creado una cuenta en Woben.
+        /// </summary>
+        public static string MailerReasonDescription {
+            get {
+                return ResourceManager.GetString("MailerReasonDescription", resourceCulture);
             }
         }
         
@@ -322,11 +403,20 @@ namespace Woben.Web.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Se ha recibido un nuevo mensaje.
+        ///   Busca una cadena traducida similar a [Woben] Se ha recibido un nuevo mensaje.
         /// </summary>
         public static string NewMessageReceived {
             get {
                 return ResourceManager.GetString("NewMessageReceived", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a [Woben] Se ha recibido una nueva notificación acerca del producto {0}.
+        /// </summary>
+        public static string NewNotificationReceived {
+            get {
+                return ResourceManager.GetString("NewNotificationReceived", resourceCulture);
             }
         }
         
@@ -358,16 +448,7 @@ namespace Woben.Web.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Confirmación de nueva cuenta en Woben.
-        /// </summary>
-        public static string WobenAccountConfimation {
-            get {
-                return ResourceManager.GetString("WobenAccountConfimation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Confirmación de cuenta en Woben.
+        ///   Busca una cadena traducida similar a [Woben] Confirmación de nueva cuenta.
         /// </summary>
         public static string WobenAccountConfirmation {
             get {
@@ -376,7 +457,7 @@ namespace Woben.Web.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Reseteo de password en Woben.
+        ///   Busca una cadena traducida similar a [Woben] Modificación de password.
         /// </summary>
         public static string WobenResetPassword {
             get {

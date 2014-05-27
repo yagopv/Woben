@@ -184,7 +184,7 @@
     <value>Ir a la consola de administración</value>
   </data>
   <data name="MailerMessageMessageReceived" xml:space="preserve">
-    <value>El usuario anónimo {0} ha escrito lo siguiente</value>
+    <value>El usuario @{0} ha escrito lo siguiente</value>
   </data>
   <data name="MailerMessageTitle" xml:space="preserve">
     <value>Hola administrador</value>
@@ -192,8 +192,35 @@
   <data name="MailerMessageUrl" xml:space="preserve">
     <value>http://woben-web-dev.azurewebsites.net/dashboard/messages</value>
   </data>
+  <data name="MailerNewAccountDescription" xml:space="preserve">
+    <value>Hola @{0}, el último paso para registrarse en Woben es que verifiques tu direccion de mail. Pulsa el siguiente botón para finalizar</value>
+  </data>
+  <data name="MailerNewAccountLink" xml:space="preserve">
+    <value>Confirma tu cuenta</value>
+  </data>
+  <data name="MailerNewAccountTitle" xml:space="preserve">
+    <value>A punto de finalizar ...</value>
+  </data>
+  <data name="MailerNotificationDescription" xml:space="preserve">
+    <value>Has recibido una nueva notificación acerca de un producto</value>
+  </data>
   <data name="MailerNotificationUrl" xml:space="preserve">
     <value>http://woben-web-dev.azurewebsites.net/dashboard/notifications</value>
+  </data>
+  <data name="MailerPasswordResetDescription" xml:space="preserve">
+    <value>Hola @{0}, pulsando en el siguiente botón te llevaremos a la página donde podrás modificar tu password</value>
+  </data>
+  <data name="MailerPasswordResetLink" xml:space="preserve">
+    <value>Modifica tu password</value>
+  </data>
+  <data name="MailerPasswordResetTitle" xml:space="preserve">
+    <value>A punto de modificar tu password ...</value>
+  </data>
+  <data name="MailerReasonAddress" xml:space="preserve">
+    <value>Nuestra dirección de mail es admin@woben.com</value>
+  </data>
+  <data name="MailerReasonDescription" xml:space="preserve">
+    <value>Estas recibiendo este mail poque has creado una cuenta en Woben</value>
   </data>
   <data name="MailerTitle" xml:space="preserve">
     <value>Woben, ventajas para empleados</value>
@@ -205,7 +232,10 @@
     <value>minute(s)</value>
   </data>
   <data name="NewMessageReceived" xml:space="preserve">
-    <value>Se ha recibido un nuevo mensaje</value>
+    <value>[Woben] Se ha recibido un nuevo mensaje</value>
+  </data>
+  <data name="NewNotificationReceived" xml:space="preserve">
+    <value>[Woben] Se ha recibido una nueva notificación acerca del producto {0}</value>
   </data>
   <data name="NoUserFound" xml:space="preserve">
     <value>No se ha encontrado el usuario</value>
@@ -216,13 +246,10 @@
   <data name="UserNotExist" xml:space="preserve">
     <value>El usuario no existe o bien no está confirmado</value>
   </data>
-  <data name="WobenAccountConfimation" xml:space="preserve">
-    <value>Confirmación de nueva cuenta en Woben</value>
-  </data>
   <data name="WobenAccountConfirmation" xml:space="preserve">
-    <value>Confirmación de cuenta en Woben</value>
+    <value>[Woben] Confirmación de nueva cuenta</value>
   </data>
   <data name="WobenResetPassword" xml:space="preserve">
-    <value>Reseteo de password en Woben</value>
+    <value>[Woben] Modificación de password</value>
   </data>
 </root>

@@ -131,7 +131,7 @@ namespace Woben.Web.Controllers
 			};
 
 			string body = ViewRenderer.RenderView("~/Views/Mailer/NewAccount.cshtml", notification);
-			await UserManager.SendEmailAsync(user.Id, WebResources.WobenAccountConfimation, body);
+			await UserManager.SendEmailAsync(user.Id, WebResources.WobenAccountConfirmation, body);
 			
 			return Ok();
 		}
