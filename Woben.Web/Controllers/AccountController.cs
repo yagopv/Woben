@@ -23,6 +23,7 @@ using Woben.Web.Helpers;
 using Woben.Data;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Woben.Web.Resources;
+using System.Configuration;
 
 namespace Woben.Web.Controllers
 {
@@ -106,7 +107,7 @@ namespace Woben.Web.Controllers
 			if (result.Succeeded)
 			{
 				//return Redirect(Url.Content("~/account/registrationcomplete"));
-                return Redirect("http://localhost:3000/registrationcomplete");
+                return Redirect(ConfigurationManager.AppSettings["DesktopClientUrl"] + "/registrationcomplete");
 			}
 
 			IHttpActionResult errorResult = GetErrorResult(result);
@@ -185,7 +186,7 @@ namespace Woben.Web.Controllers
 
 				string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
 				//var callbackUrl = Url.Content("~/account/resetpassword?email=") + HttpUtility.UrlEncode(model.Email) + "&code=" + HttpUtility.UrlEncode(code);
-                var callbackUrl = "http://localhost:3000/resetPassword?email=" + HttpUtility.UrlEncode(model.Email) + "&code=" + HttpUtility.UrlEncode(code);
+                var callbackUrl = ConfigurationManager.AppSettings["DesktopClientUrl"] + "/resetPassword?email=" + HttpUtility.UrlEncode(model.Email) + "&code=" + HttpUtility.UrlEncode(code);
 
 				var notification = new AccountNotificationModel
 				{

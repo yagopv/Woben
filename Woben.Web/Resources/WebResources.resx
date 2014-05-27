@@ -220,7 +220,7 @@
     <value>Nuestra dirección de mail es admin@woben.com</value>
   </data>
   <data name="MailerReasonDescription" xml:space="preserve">
-    <value>Estas recibiendo este mail poque has creado una cuenta en Woben</value>
+    <value>Estas recibiendo este mail porque has creado una cuenta en Woben</value>
   </data>
   <data name="MailerTitle" xml:space="preserve">
     <value>Woben, ventajas para empleados</value>

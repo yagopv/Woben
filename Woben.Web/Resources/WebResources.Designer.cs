@@ -367,7 +367,7 @@ namespace Woben.Web.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Estas recibiendo este mail poque has creado una cuenta en Woben.
+        ///   Busca una cadena traducida similar a Estas recibiendo este mail porque has creado una cuenta en Woben.
         /// </summary>
         public static string MailerReasonDescription {
             get {
