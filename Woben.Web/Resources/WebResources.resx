@@ -150,8 +150,17 @@
   <data name="MailerContactUrl" xml:space="preserve">
     <value>http://woben-web-dev.azurewebsites.net/contact</value>
   </data>
+  <data name="MailerDashboardUrl" xml:space="preserve">
+    <value>http://woben-web-dev.azurewebsites.net/dashboard</value>
+  </data>
   <data name="MailerFacebookUrl" xml:space="preserve">
     <value>http://facebook.com</value>
+  </data>
+  <data name="MailerGoToMessages" xml:space="preserve">
+    <value>Ir a mensajes</value>
+  </data>
+  <data name="MailerGoToNotifications" xml:space="preserve">
+    <value>Ir a las notificaciones</value>
   </data>
   <data name="MailerHome" xml:space="preserve">
     <value>Home</value>
@@ -159,11 +168,20 @@
   <data name="MailerHomeUrl" xml:space="preserve">
     <value>http://woben-web-dev.azurewebsites.net</value>
   </data>
+  <data name="MailerIndiferent" xml:space="preserve">
+    <value>La hora de llamada es indiferente</value>
+  </data>
+  <data name="MailerIntheAfternoon" xml:space="preserve">
+    <value>Llamar por las tardes</value>
+  </data>
+  <data name="MailerIntheMornings" xml:space="preserve">
+    <value>Llamar por las mañanas</value>
+  </data>
   <data name="MailerMessageDescription" xml:space="preserve">
     <value>Has recibido un nuevo mensaje</value>
   </data>
   <data name="MailerMessageGoTo" xml:space="preserve">
-    <value>Ir a mensajes</value>
+    <value>Ir a la consola de administración</value>
   </data>
   <data name="MailerMessageMessageReceived" xml:space="preserve">
     <value>El usuario anónimo {0} ha escrito lo siguiente</value>
@@ -172,7 +190,10 @@
     <value>Hola administrador</value>
   </data>
   <data name="MailerMessageUrl" xml:space="preserve">
-    <value>http://woben-web-dev.azurewebsites.net/dashboard/mesages</value>
+    <value>http://woben-web-dev.azurewebsites.net/dashboard/messages</value>
+  </data>
+  <data name="MailerNotificationUrl" xml:space="preserve">
+    <value>http://woben-web-dev.azurewebsites.net/dashboard/notifications</value>
   </data>
   <data name="MailerTitle" xml:space="preserve">
     <value>Woben, ventajas para empleados</value>

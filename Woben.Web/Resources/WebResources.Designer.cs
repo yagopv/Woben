@@ -160,11 +160,38 @@ namespace Woben.Web.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a http://woben-web-dev.azurewebsites.net/dashboard.
+        /// </summary>
+        public static string MailerDashboardUrl {
+            get {
+                return ResourceManager.GetString("MailerDashboardUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a http://facebook.com.
         /// </summary>
         public static string MailerFacebookUrl {
             get {
                 return ResourceManager.GetString("MailerFacebookUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ir a mensajes.
+        /// </summary>
+        public static string MailerGoToMessages {
+            get {
+                return ResourceManager.GetString("MailerGoToMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ir a las notificaciones.
+        /// </summary>
+        public static string MailerGoToNotifications {
+            get {
+                return ResourceManager.GetString("MailerGoToNotifications", resourceCulture);
             }
         }
         
@@ -187,6 +214,33 @@ namespace Woben.Web.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a La hora de llamada es indiferente.
+        /// </summary>
+        public static string MailerIndiferent {
+            get {
+                return ResourceManager.GetString("MailerIndiferent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Llamar por las tardes.
+        /// </summary>
+        public static string MailerIntheAfternoon {
+            get {
+                return ResourceManager.GetString("MailerIntheAfternoon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Llamar por las mañanas.
+        /// </summary>
+        public static string MailerIntheMornings {
+            get {
+                return ResourceManager.GetString("MailerIntheMornings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Has recibido un nuevo mensaje.
         /// </summary>
         public static string MailerMessageDescription {
@@ -196,7 +250,7 @@ namespace Woben.Web.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Ir a mensajes.
+        ///   Busca una cadena traducida similar a Ir a la consola de administración.
         /// </summary>
         public static string MailerMessageGoTo {
             get {
@@ -223,11 +277,20 @@ namespace Woben.Web.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a http://woben-web-dev.azurewebsites.net/dashboard/mesages.
+        ///   Busca una cadena traducida similar a http://woben-web-dev.azurewebsites.net/dashboard/messages.
         /// </summary>
         public static string MailerMessageUrl {
             get {
                 return ResourceManager.GetString("MailerMessageUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a http://woben-web-dev.azurewebsites.net/dashboard/notifications.
+        /// </summary>
+        public static string MailerNotificationUrl {
+            get {
+                return ResourceManager.GetString("MailerNotificationUrl", resourceCulture);
             }
         }
         
