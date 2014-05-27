@@ -23,6 +23,7 @@ using Woben.Domain.Model;
 using Woben.Data;
 using Woben.Web.Helpers;
 using Woben.Web.Models;
+using Woben.Web.Resources;
 
 namespace Woben.Web.Controllers
 {
@@ -123,7 +124,7 @@ namespace Woben.Web.Controllers
 
             foreach (var adminUser in adminUsers.ToList())
             {
-                await UserManager.SendEmailAsync(adminUser.Id, "Se ha recibido un nuevo mensaje", body);
+                await UserManager.SendEmailAsync(adminUser.Id, WebResources.NewMessageReceived, body);
             }
 
             return Created(message);

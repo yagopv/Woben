@@ -150,6 +150,9 @@
   <data name="MailerContactUrl" xml:space="preserve">
     <value>http://woben-web-dev.azurewebsites.net/contact</value>
   </data>
+  <data name="MailerFacebookUrl" xml:space="preserve">
+    <value>http://facebook.com</value>
+  </data>
   <data name="MailerHome" xml:space="preserve">
     <value>Home</value>
   </data>
@@ -157,16 +160,16 @@
     <value>http://woben-web-dev.azurewebsites.net</value>
   </data>
   <data name="MailerMessageDescription" xml:space="preserve">
-    <value>El usuario {0} te ha enviado un nuevo mensaje</value>
+    <value>Has recibido un nuevo mensaje</value>
   </data>
   <data name="MailerMessageGoTo" xml:space="preserve">
     <value>Ir a mensajes</value>
   </data>
   <data name="MailerMessageMessageReceived" xml:space="preserve">
-    <value>Has recibido el siguiente mensaje</value>
+    <value>El usuario anónimo {0} ha escrito lo siguiente</value>
   </data>
   <data name="MailerMessageTitle" xml:space="preserve">
-    <value>Has recibido un nuevo mensaje</value>
+    <value>Hola administrador</value>
   </data>
   <data name="MailerMessageUrl" xml:space="preserve">
     <value>http://woben-web-dev.azurewebsites.net/dashboard/mesages</value>
@@ -174,8 +177,14 @@
   <data name="MailerTitle" xml:space="preserve">
     <value>Woben, ventajas para empleados</value>
   </data>
+  <data name="MailerTwitterUrl" xml:space="preserve">
+    <value>http://twitter.com</value>
+  </data>
   <data name="Minutes" xml:space="preserve">
     <value>minute(s)</value>
+  </data>
+  <data name="NewMessageReceived" xml:space="preserve">
+    <value>Se ha recibido un nuevo mensaje</value>
   </data>
   <data name="NoUserFound" xml:space="preserve">
     <value>No se ha encontrado el usuario</value>
