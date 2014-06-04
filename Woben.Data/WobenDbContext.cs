@@ -31,6 +31,10 @@ namespace Woben.Data
             Configuration.LazyLoadingEnabled = false;
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
+            modelBuilder.Entity<Tag>().HasRequired(t => t.Product).WithMany(p => p.Tags).WillCascadeOnDelete(true);
+            modelBuilder.Entity<Feature>().HasRequired(f => f.Product).WithMany(p => p.Features).WillCascadeOnDelete(true);
+            modelBuilder.Entity<Notification>().HasRequired(f => f.Product).WithMany(p => p.Notifications).WillCascadeOnDelete(true);
+
             // Very bad idea not doing this :)
             //http://stackoverflow.com/questions/19474662/map-tables-using-fluent-api-in-asp-net-mvc5-ef6
             base.OnModelCreating(modelBuilder);

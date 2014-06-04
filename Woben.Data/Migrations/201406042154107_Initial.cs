@@ -31,7 +31,7 @@ namespace Woben.Data.Migrations
                         Identity = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.FeatureId)
-                .ForeignKey("dbo.Products", t => t.ProductId)
+                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
                 .Index(t => t.ProductId)
                 .Index(t => t.Identity, unique: true);
             
@@ -76,7 +76,7 @@ namespace Woben.Data.Migrations
                         RowVersion = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.NotificationId)
-                .ForeignKey("dbo.Products", t => t.ProductId)
+                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
                 .Index(t => t.ProductId)
                 .Index(t => t.CreatedBy)
                 .Index(t => t.UpdatedBy);
@@ -92,7 +92,7 @@ namespace Woben.Data.Migrations
                         Identity = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.TagId)
-                .ForeignKey("dbo.Products", t => t.ProductId)
+                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
                 .Index(t => t.Name)
                 .Index(t => t.ProductId)
                 .Index(t => t.UrlCodeReference, unique: true)
@@ -196,9 +196,9 @@ namespace Woben.Data.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Features", "ProductId", "dbo.Products");
             DropForeignKey("dbo.Tags", "ProductId", "dbo.Products");
             DropForeignKey("dbo.Notifications", "ProductId", "dbo.Products");
-            DropForeignKey("dbo.Features", "ProductId", "dbo.Products");
             DropForeignKey("dbo.Products", "CategoryId", "dbo.Categories");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });

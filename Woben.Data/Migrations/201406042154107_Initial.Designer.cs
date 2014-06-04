@@ -13,7 +13,7 @@ namespace Woben.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201405171941384_Initial"; }
+            get { return "201406042154107_Initial"; }
         }
         
         string IMigrationMetadata.Source
