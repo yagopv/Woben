@@ -65,8 +65,8 @@ namespace Woben.Data.Migrations
                 c => new
                     {
                         ImageId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Url = c.Int(nullable: false),
+                        Name = c.String(maxLength: 300),
+                        Url = c.String(maxLength: 400),
                         Identity = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.ImageId)

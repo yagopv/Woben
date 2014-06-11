@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Woben.Domain.Resources;
 
 namespace Woben.Domain.Model
 {
@@ -22,12 +23,14 @@ namespace Woben.Domain.Model
         /// <summary>
         /// Image file Name
         /// </summary>
+        [StringLength(300, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
         public String Name { get; set; }
 
         /// <summary>
         /// Url
-        /// </summary>        
-        public int Url { get; set; }
+        /// </summary>   
+        [StringLength(400, ErrorMessageResourceType = typeof(DomainResources), ErrorMessageResourceName = "MaxLength")]
+        public String Url { get; set; }
 
         /// <summary>
         /// Related Products
