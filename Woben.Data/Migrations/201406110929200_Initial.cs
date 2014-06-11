@@ -21,21 +21,6 @@ namespace Woben.Data.Migrations
                 .Index(t => t.UrlCodeReference, unique: true);
             
             CreateTable(
-                "dbo.Features",
-                c => new
-                    {
-                        FeatureId = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(maxLength: 500),
-                        ProductId = c.Int(nullable: false),
-                        Identity = c.Guid(nullable: false),
-                    })
-                .PrimaryKey(t => t.FeatureId)
-                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
-                .Index(t => t.ProductId)
-                .Index(t => t.Identity, unique: true);
-            
-            CreateTable(
                 "dbo.Products",
                 c => new
                     {
@@ -59,6 +44,33 @@ namespace Woben.Data.Migrations
                 .Index(t => t.CategoryId)
                 .Index(t => t.CreatedBy)
                 .Index(t => t.UpdatedBy);
+            
+            CreateTable(
+                "dbo.Features",
+                c => new
+                    {
+                        FeatureId = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 100),
+                        Description = c.String(maxLength: 500),
+                        ProductId = c.Int(nullable: false),
+                        Identity = c.Guid(nullable: false),
+                    })
+                .PrimaryKey(t => t.FeatureId)
+                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
+                .Index(t => t.ProductId)
+                .Index(t => t.Identity, unique: true);
+            
+            CreateTable(
+                "dbo.Images",
+                c => new
+                    {
+                        ImageId = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Url = c.Int(nullable: false),
+                        Identity = c.Guid(nullable: false),
+                    })
+                .PrimaryKey(t => t.ImageId)
+                .Index(t => t.Identity, unique: true);
             
             CreateTable(
                 "dbo.Notifications",
@@ -188,6 +200,19 @@ namespace Woben.Data.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.UserId);
             
+            CreateTable(
+                "dbo.ImageProducts",
+                c => new
+                    {
+                        Image_ImageId = c.Int(nullable: false),
+                        Product_ProductId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.Image_ImageId, t.Product_ProductId })
+                .ForeignKey("dbo.Images", t => t.Image_ImageId, cascadeDelete: true)
+                .ForeignKey("dbo.Products", t => t.Product_ProductId, cascadeDelete: true)
+                .Index(t => t.Image_ImageId)
+                .Index(t => t.Product_ProductId);
+            
         }
         
         public override void Down()
@@ -196,10 +221,14 @@ namespace Woben.Data.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Features", "ProductId", "dbo.Products");
             DropForeignKey("dbo.Tags", "ProductId", "dbo.Products");
             DropForeignKey("dbo.Notifications", "ProductId", "dbo.Products");
+            DropForeignKey("dbo.ImageProducts", "Product_ProductId", "dbo.Products");
+            DropForeignKey("dbo.ImageProducts", "Image_ImageId", "dbo.Images");
+            DropForeignKey("dbo.Features", "ProductId", "dbo.Products");
             DropForeignKey("dbo.Products", "CategoryId", "dbo.Categories");
+            DropIndex("dbo.ImageProducts", new[] { "Product_ProductId" });
+            DropIndex("dbo.ImageProducts", new[] { "Image_ImageId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
@@ -215,13 +244,15 @@ namespace Woben.Data.Migrations
             DropIndex("dbo.Notifications", new[] { "UpdatedBy" });
             DropIndex("dbo.Notifications", new[] { "CreatedBy" });
             DropIndex("dbo.Notifications", new[] { "ProductId" });
+            DropIndex("dbo.Images", new[] { "Identity" });
+            DropIndex("dbo.Features", new[] { "Identity" });
+            DropIndex("dbo.Features", new[] { "ProductId" });
             DropIndex("dbo.Products", new[] { "UpdatedBy" });
             DropIndex("dbo.Products", new[] { "CreatedBy" });
             DropIndex("dbo.Products", new[] { "CategoryId" });
-            DropIndex("dbo.Features", new[] { "Identity" });
-            DropIndex("dbo.Features", new[] { "ProductId" });
             DropIndex("dbo.Categories", new[] { "UrlCodeReference" });
             DropIndex("dbo.Categories", new[] { "Name" });
+            DropTable("dbo.ImageProducts");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
@@ -230,8 +261,9 @@ namespace Woben.Data.Migrations
             DropTable("dbo.Messages");
             DropTable("dbo.Tags");
             DropTable("dbo.Notifications");
-            DropTable("dbo.Products");
+            DropTable("dbo.Images");
             DropTable("dbo.Features");
+            DropTable("dbo.Products");
             DropTable("dbo.Categories");
         }
     }

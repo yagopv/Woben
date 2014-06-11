@@ -88,6 +88,11 @@ namespace Woben.Domain.Model
         public ICollection<Feature> Features { get; set; }
 
         /// <summary>
+        /// Related Images
+        /// </summary>
+        public ICollection<Image> Images { get; set; }
+
+        /// <summary>
         /// Related Messages
         /// </summary>
         public ICollection<Notification> Notifications { get; set; }

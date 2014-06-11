@@ -54,7 +54,7 @@ namespace Woben.Web.Controllers
 
             if (product.Tags != null)
             {
-                // Add new tags
+                // Add new Tags
                 foreach (var tag in product.Tags.ToList())
                 {
                     if (tag.TagId == 0)
@@ -78,7 +78,7 @@ namespace Woben.Web.Controllers
 
             if (product.Features != null)
             {
-                // Add new tags
+                // Add new Features
                 foreach (var feature in product.Features.ToList())
                 {
                     if (feature.FeatureId == 0)
@@ -88,13 +88,34 @@ namespace Woben.Web.Controllers
                     }
                     else if (feature.FeatureId == -1)
                     {
-                        var originalFeaure = await db.Features.Where(f => f.Identity == feature.Identity && f.ProductId == f.ProductId).FirstAsync();
-                        if (originalFeaure != null)
+                        var originalFeature = await db.Features.Where(f => f.Identity == feature.Identity && f.ProductId == f.ProductId).FirstAsync();
+                        if (originalFeature != null)
                         {
                             product.Features.Remove(feature);
-                            db.Features.Remove(originalFeaure);
+                            db.Features.Remove(originalFeature);
                         }
+                    }
+                }
+            }
 
+            if (product.Images != null)
+            {
+                // Add new tags
+                foreach (var image in product.Images.ToList())
+                {
+                    if (image.ImageId == 0)
+                    {
+                        image.Identity = Guid.NewGuid();
+                        db.Images.Add(image);
+                    }
+                    else if (image.ImageId == -1)
+                    {
+                        var originalImage = await db.Images.Where(i => i.Identity == image.Identity).Include(i => i.Products).FirstAsync();
+                        if (originalImage != null)
+                        {
+                            product.Images.Remove(image);
+                            originalImage.Products.Remove(product);                            
+                        }
                     }
                 }
             }

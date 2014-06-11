@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Feature.cs" />
+    <Compile Include="Model\Image.cs" />
     <Compile Include="Model\Message.cs" />
     <Compile Include="Model\Notification.cs" />
     <Compile Include="Model\Product.cs" />

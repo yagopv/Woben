@@ -17,43 +17,41 @@ using Woben.Data;
 namespace Woben.Web.Controllers
 {
     [Authorize]
-    public class CategoryController : ODataController
+    public class ImageController : ODataController
     {
         private WobenDbContext db = new WobenDbContext();
 
-        // GET odata/Category
+        // GET odata/Image
         [Queryable]
         [Authorize]
-        public IQueryable<Category> GetCategory()
+        public IQueryable<Image> GetImage()
         {
-            return db.Categories;
+            return db.Images;
         }
 
-        // GET odata/Category(5)
+        // GET odata/Image(5)
         [Queryable]
         [Authorize]
-        public SingleResult<Category> GetCategory([FromODataUri] int key)
+        public SingleResult<Image> GetImage([FromODataUri] int key)
         {
-            return SingleResult.Create(db.Categories.Where(category => category.CategoryId == key));
+            return SingleResult.Create(db.Images.Where(image => image.ImageId == key));
         }
 
-        // PUT odata/Category(5)
-        [Authorize(Roles="Administrator")]
-        public async Task<IHttpActionResult> Put([FromODataUri] int key, Category category)
+        // PUT odata/Image(5)
+        [Authorize(Roles = "Administrator")]
+        public async Task<IHttpActionResult> Put([FromODataUri] int key, Image image)
         {
-            category.SetUrlReference();
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (key != category.CategoryId)
+            if (key != image.ImageId)
             {
                 return BadRequest();
             }
 
-            db.Entry(category).State = EntityState.Modified;
+            db.Entry(image).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +59,7 @@ namespace Woben.Web.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CategoryExists(key))
+                if (!ImageExists(key))
                 {
                     return NotFound();
                 }
@@ -71,43 +69,41 @@ namespace Woben.Web.Controllers
                 }
             }
 
-            return Updated(category);
+            return Updated(image);
         }
 
-        // POST odata/Category
+        // POST odata/Image
         [Authorize(Roles = "Administrator")]
-        public async Task<IHttpActionResult> Post(Category category)
+        public async Task<IHttpActionResult> Post(Image image)
         {
-            category.SetUrlReference();
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Categories.Add(category);
+            db.Images.Add(image);
             await db.SaveChangesAsync();
 
-            return Created(category);
+            return Created(image);
         }
 
-        // PATCH odata/Category(5)
+        // PATCH odata/Image(5)
         [AcceptVerbs("PATCH", "MERGE")]
         [Authorize(Roles = "Administrator")]
-        public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<Category> patch)
+        public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<Image> patch)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            Category category = await db.Categories.FindAsync(key);
-            if (category == null)
+            Image image = await db.Images.FindAsync(key);
+            if (image == null)
             {
                 return NotFound();
             }
 
-            patch.Patch(category);
+            patch.Patch(image);
 
             try
             {
@@ -115,7 +111,7 @@ namespace Woben.Web.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CategoryExists(key))
+                if (!ImageExists(key))
                 {
                     return NotFound();
                 }
@@ -125,20 +121,20 @@ namespace Woben.Web.Controllers
                 }
             }
 
-            return Updated(category);
+            return Updated(image);
         }
 
-        // DELETE odata/Category(5)
+        // DELETE odata/Image(5)
         [Authorize(Roles = "Administrator")]
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
-            Category category = await db.Categories.FindAsync(key);
-            if (category == null)
+            Image image = await db.Images.FindAsync(key);
+            if (image == null)
             {
                 return NotFound();
             }
 
-            db.Categories.Remove(category);
+            db.Images.Remove(image);
             await db.SaveChangesAsync();
 
             return StatusCode(HttpStatusCode.NoContent);
@@ -149,7 +145,7 @@ namespace Woben.Web.Controllers
         [Authorize]
         public IQueryable<Product> GetProducts([FromODataUri] int key)
         {
-            return db.Categories.Where(m => m.CategoryId == key).SelectMany(m => m.Products);
+            return db.Images.Where(m => m.ImageId == key).SelectMany(m => m.Products);
         }
 
         protected override void Dispose(bool disposing)
@@ -161,9 +157,9 @@ namespace Woben.Web.Controllers
             base.Dispose(disposing);
         }
 
-        private bool CategoryExists(int key)
+        private bool ImageExists(int key)
         {
-            return db.Categories.Count(e => e.CategoryId == key) > 0;
+            return db.Images.Count(e => e.ImageId == key) > 0;
         }
     }
 }

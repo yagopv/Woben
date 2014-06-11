@@ -46,6 +46,11 @@ namespace Woben.Domain.Model
         public string UrlCodeReference { get; set; }
 
         /// <summary>
+        /// Related Products
+        /// </summary>
+        public ICollection<Product> Products { get; set; }
+
+        /// <summary>
         /// Create a url reference
         /// </summary>
         /// <param name="title">The string to convert</param>
