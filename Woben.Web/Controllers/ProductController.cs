@@ -142,12 +142,12 @@ namespace Woben.Web.Controllers
 
             var originalProduct = await db.Products.Where(p => p.ProductId == product.ProductId).Include(i => i.Images).FirstAsync();
             
-            foreach (var image in ToDelete) {
+            foreach (var image in ToDelete.ToList()) {
                 Image originalImage = originalProduct.Images.FirstOrDefault(i => i.Identity == image.Identity);
                 if (originalImage != null)
                 {
                     originalProduct.Images.Remove(originalImage);
-                }                
+                }
             }
 
             try
