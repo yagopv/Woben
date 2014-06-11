@@ -113,8 +113,7 @@ namespace Woben.Web.Controllers
                         var originalImage = await db.Images.Where(i => i.Identity == image.Identity).Include(i => i.Products).FirstAsync();
                         if (originalImage != null)
                         {
-                            product.Images.Remove(image);
-                            originalImage.Products.Remove(product);                            
+                            product.Images.Remove(image);                            
                         }
                     }
                 }
