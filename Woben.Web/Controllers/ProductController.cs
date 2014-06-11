@@ -98,10 +98,10 @@ namespace Woben.Web.Controllers
                 }
             }
 
-            if (product.Images != null)
-            {
-                var originalProduct = await db.Products.Where(p => p.ProductId == product.ProductId).Include(i => i.Images).FirstAsync();
+            List<Image> ToDelete = new List<Image>();
 
+            if (product.Images != null)
+            {                
                 // Add new tags
                 foreach (var image in product.Images.ToList())
                 {
@@ -111,12 +111,8 @@ namespace Woben.Web.Controllers
                         db.Images.Add(image);
                     }
                     else if (image.ImageId == -1)
-                    {                        
-                        var originalImage = await db.Images.Where(i => i.Identity == image.Identity).FirstAsync();
-                        if (originalImage != null)
-                        {
-                            originalProduct.Images.Remove(originalImage);                            
-                        }
+                    {
+                        ToDelete.Add(image);                        
                     }
                 }
             }
@@ -137,7 +133,43 @@ namespace Woben.Web.Controllers
                 {
                     throw;
                 }
-            }            
+            }
+
+            if (ToDelete.Count() == 0)
+            {
+                return Ok(product);
+            }
+
+            var originalProduct = await db.Products.Where(p => p.ProductId == product.ProductId).Include(i => i.Images).FirstAsync();
+            
+            foreach (var image in ToDelete) {
+                Image originalImage = originalProduct.Images.FirstOrDefault(i => i.Identity == image.Identity);
+                if (originalImage != null)
+                {
+                    originalProduct.Images.Remove(originalImage);
+                }                
+            }
+
+            try
+            {
+                await db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ProductExists(key))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            if (ToDelete.Count() == 0)
+            {
+                return Ok(product);
+            }
 
             return Ok(product);
         }
