@@ -33,9 +33,15 @@ namespace Woben.Domain.Model
         public String Url { get; set; }
 
         /// <summary>
-        /// Related Products
+        /// Related product identity
+        /// </summary>        
+        public int ProductId { get; set; }
+
+        /// <summary>
+        /// Related product
         /// </summary>
-        public ICollection<Product> Products { get; set; }
+        [ForeignKey("ProductId")]
+        public Product Product { get; set; }
 
         /// <summary>
         /// Unique Identity for add/delete/update operations

@@ -140,12 +140,11 @@ namespace Woben.Web.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // GET odata/Image(5)/Products
+        // GET odata/Feature(5)/Product
         [Queryable]
-        [Authorize]
-        public IQueryable<Product> GetProducts([FromODataUri] int key)
+        public SingleResult<Product> GetProduct([FromODataUri] int key)
         {
-            return db.Images.Where(m => m.ImageId == key).SelectMany(m => m.Products);
+            return SingleResult.Create(db.Features.Where(m => m.FeatureId == key).Select(m => m.Product));
         }
 
         protected override void Dispose(bool disposing)
