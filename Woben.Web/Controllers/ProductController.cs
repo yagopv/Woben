@@ -100,6 +100,8 @@ namespace Woben.Web.Controllers
 
             if (product.Images != null)
             {
+                var originalProduct = await db.Products.Where(p => p.ProductId == product.ProductId).Include(i => i.Images).FirstAsync();
+
                 // Add new tags
                 foreach (var image in product.Images.ToList())
                 {
@@ -109,11 +111,11 @@ namespace Woben.Web.Controllers
                         db.Images.Add(image);
                     }
                     else if (image.ImageId == -1)
-                    {
+                    {                        
                         var originalImage = await db.Images.Where(i => i.Identity == image.Identity).FirstAsync();
                         if (originalImage != null)
                         {
-                            product.Images.Remove(originalImage);                            
+                            originalProduct.Images.Remove(originalImage);                            
                         }
                     }
                 }
